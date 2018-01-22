@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Day02Test</title>
+</head>
+<body>
+	<script>
+		//函数练习
+		// 1.求圆的周长和面积
+			// function getCirclePeriAndArea(radius,mode){
+			// 	var peri = 2*Math.PI*radius;
+			// 	var area = Math.PI*Math.pow(radius,2);
+			// 	if (mode ===1){
+			// 		return peri;
+			// 	}else{
+			// 		return area;
+			// 	}
+			// }
+			// console.log("the peir of circle is "+ getCirclePeriAndArea(6,1));
+			// console.log("the area of circle is "+ getCirclePeriAndArea(6,2));
+			
+			// console.log("testtest"+getCirclePeriAndArea(6));//js不会返回多个数组，根据逗号表达式，会返回逗号最后的那个参数
+
+		// 2.求2个数中的最大值
+			// function getMaxOfTowNumbers(num1,num2){
+			// 	return num1>num2?num1:num2;
+			// }
+			// var num1 = prompt("num1=");
+			// var num2 = prompt("num2=");
+			// console.log("the max of "+num1 +" and "+num2+" is  " + getMaxOfTowNumbers(num1,num2));
+
+		// 3.求3个数中的最大值
+			// function getMinOfTwoNumbers(num1,num2){
+			// 	return num1<num2?num1:num2;
+			// }
+			// var num1 = prompt("num1=");
+			// var num2 = prompt("num2=");
+			// console.log("the min of " + num1 +" and " +num2 +" is " + getMinOfTwoNumbers(num1,num2));
+		
+		// 4.求一组数中的最大值
+			// function getMaxOfArray(arr){
+			// 	var max = arr[0];
+			// 	for(var i = 1;i<arr.length; i++){
+			// 		if(max<arr[i]){
+			// 			max = arr[i];
+			// 		}
+			// 	}
+			// 	return max;
+			// }
+			// var arr = [42,20,17,13,14,28,23,45];
+			// console.log("the arr is "+ arr);
+			// console.log("then max of arr is "+ getMaxOfArray(arr));
+
+		
+		// 5.求一组数中的最小值
+			// function getMinOfArray(arr){
+			// 	var min = arr[0];
+			// 	for(var i =1;i<arr.length;i++){
+			// 		if (min> arr[i]){
+			// 			min = arr[i];
+			// 		}
+			// 	}
+			// 	return min;
+			// }
+
+			// var arr = [42,20,17,13,14,28,23,45];
+			// console.log("the arr is "+ arr);
+			// console.log("the min of arr is " +getMinOfArray(arr));
+		
+		
+		// 6.翻转数组，返回一个新数组
+			// function rolloverArray(arr){
+			// 	var result = [];
+			// 	for(var i = 0;i<arr.length;i++){
+			// 		result[result.length] =  arr[arr.length-1-i];
+			// 	}
+			// 	return result;
+			// }
+
+			// var arr = ["刘备","张飞","关羽","黄忠"];
+			// console.log("before rollover array ",arr);
+			// arr = rolloverArray(arr);
+			// console.log("after rollovre array",arr);
+		
+		// 7.对数组排序，从小到大
+			// function bubleArr(arr){
+			// 	for(var i = 0;i<arr.length-1;i++){
+			// 		var flag = true;
+			// 		for(var j = arr.length-1;j>i;j--){
+			// 			if(arr[j]<arr[j-1]){
+			// 				flag  = false;
+			// 				var tmp = arr[j-1];
+			// 				arr[j-1]= arr[j];
+			// 				arr[j] = tmp;
+			// 			}
+			// 		}
+			// 		if(flag){
+			// 			break;
+			// 		}
+			// 	}
+			// 	return arr;
+			// }
+		
+			// var arr = [9,8,7,6,5,4,5,2];
+			// console.log("arr befor sort is "+arr);
+			// arr = bubleArr(arr);
+			// console.log("arr after sort is "+ arr);
+			
+		// 8.求阶乘
+			
+		// function getFactorial(num){
+		// 	if (num ===1){
+		// 		return 1;
+		// 	}else{
+		// 		return num*getFactorial(--num);
+		// 	}
+		// }
+		// var num = 6;
+		// console.log(num + "! is "+ getFactorial(num));
+			
+		// 9.求1!+2!+3!+....+n!（函数嵌套）
+		// function getSumOfFactorial(num){
+		// 	if (num === 1){
+		// 		return getFactorial(num);
+		// 	}else{
+		// 		return getFactorial(num)+getSumOfFactorial(--num);
+		// 	}
+		// }
+
+		// var num = 4;
+		// console.log("the result is " + getSumOfFactorial(num));
+
+		// 10.判断一个数是否是素数
+		// function isPrimeNum(num){
+		// 	if(num <= 1){
+		// 		return false
+		// 	}else{
+		// 		for(var i = 2;i< num ;i++){
+		// 			if (num%i === 0 ){
+		// 				return false;
+		// 			}
+		// 		}
+		// 		return true;
+
+		// 	}	
+		// }
+		// var num = prompt("please enter a num :");
+		// console.log(num + " is primeNum ?");
+		// console.log(isPrimeNum(num));
+
+		// 作业：
+		// 1.求斐波那契数列Fibonacci中的第n个数是多少？(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233，377，610...)      
+		// function getFibonacciNumber(n){
+		// 	var num1 = 1;
+		// 	var num2 = 1;
+		// 	for(var i = 2;i< n; i++){
+		// 		var tmp = num2;
+		// 		num2 = num1+ num2;
+		// 		num1 = tmp;
+		// 	}
+		// 	return num2;
+		// }
+		// var n = Number(prompt("which fibonacciNumber do you want to know ？"));
+		// console.log(" the " + n + "  fibonacciNumber is  " + getFibonacciNumber(n));
+		
+		// 2.输入某年(闰年：能被4整数并且不能被100整数，或者能被400整数)
+		// function isLeapYear(year){
+		// 	return year%4===0 && year%100!==0 ;
+		// }
+
+		// var year = Number(prompt("please enter a year"));
+		// console.log("Is " + year + " a  Leap Year?");
+		// console.log(isLeapYear(year));
+		
+		// 3.输入某年某月某日，判断这一天是这一年的第几天？
+		// function getDayInYear(year,month,day){
+		// 	var norMonths = [31,28,31,30,31,30,31,31,30,31,30,31];	
+		// 	var leapMonths = [31,29,31,30,31,30,31,31,30,31,30,31];	
+		// 	var dayCnt = 0;
+		// 	if (isLeapYear(year) ) {
+		// 		for(var i = 0;i<=month-2;i++){
+		// 			day += leapMonths[i];
+		// 		}
+		// 	}else{
+		// 		for(var i = 0;i<=month-2;i++){
+		// 			day += norMonths[i];
+		// 		}
+		// 	}
+		// 	return dayCnt+ day;
+		// }
+
+		// var year = Number(prompt("please enter a year:"));
+		// var month = Number(prompt("please enter a month:"));
+		// var day = Number(prompt("please enter a day:"));
+		// console.log(year +"年" +month +"月"+day+"日是"+year+"年的第"+getDayInYear(year,month,day)+"天");
+		
+
+		//关于作用域链的一些小测试
+		// function f() {
+		// 	var name = "zs";
+		// 	var n = 123;
+		// }
+		// f();
+		// console.log(n);
+		// console.log(name);
+		
+
+		// var num = 10;
+		// fun();
+		// function fun(){
+		// 	console.log(num);
+		// 	var num = 18;
+		// }
+		
+		// var a = 16;
+		// fun();
+		// function fun(){
+		// 	console.log(b);//undefined
+		// 	console.log(a);//undefined
+		// 	var b = 19;
+		// 	var a = 18;
+		// } 
+		// console.log(a);
+		
+		// f1();
+		// // console.log(a);//-->报错，未找到变量
+		// console.log(b);
+		// console.log(c);
+		// function f1(){
+		// 	var a = b = c = 33;
+		// 	console.log("11"+a);
+		// 	console.log("11"+b);
+		// 	console.log("11"+c);
+		// }
+		
+		// 递归的使用：
+		//1.利用递归就100之内数的和
+		// function  getSum(n) {
+		// 	if (n ===1){
+		// 		return 1;
+		// 	}else{
+		// 		return n+getSum(--n);
+		// 	}
+		// }
+		// console.log("100以内数之和"+getSum(100));
+
+		// 2.利用递归实现fibonaccis的第1个数
+		// function fibonaccis(n) {
+		// 	if (n===1) return 1;
+		// 	if (n===2) return 1;
+		// 	return fibonaccis(n-1)+fibonaccis(n-2);
+		// }
+		// var n = 6;
+		// console.log("第"+n+"个 fibonaccis 数是：" +fibonaccis(n));
+
+
+		// function fn(){
+		// 	alert(1);
+		// }
+		// console.log(fn == function fn(){
+		// 	alert(1);
+		// });
+		// 
+		
+		console.log("jububianliang");
+		function f(){
+			var a = b=c=1;
+			var d=1,e=2,f=3;
+			var g=2;h=3;i=5;
+		}
+
+
+
+	</script>
+</body>
+</html>

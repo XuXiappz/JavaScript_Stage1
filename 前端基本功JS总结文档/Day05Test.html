@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Day05Test</title>
+</head>
+<body>
+	<script>
+		// // 1.对象字面量
+		
+		// // 2.json和对象字面量的区别，仅仅在于，js中的键值对中的键必须要带有“”;json中很少放function 
+		// var json = {"name":"lisi","age":18,"arr":[1,2,3]};
+		// console.log(json);
+
+		// // 利用 数组的方法遍历json
+		// // 对象本身没有length，所以，不能用for 循环遍历，length 此时为undefined
+		// for (var i =0;i<json.length;i++){
+		// 	console.log(json[i]);
+		// }
+		// //对象要用for-in来进行遍历
+		// //aaa.k 代表aaa 这个对象的k属性的值，并不是k对应的变量值的属性
+		// //aaa[k]代表aaa 这个对象中k这个变量值对应的属性值
+		// for(var k in json){//json 中这个对象有多少个键值对就for循环就执行多少次
+		// 	console.log(k + " = "+json[k] );
+		// }
+		
+
+		// 制作一个json，然后遍历该json
+		// var json = {};
+		// console.log("before");
+		// console.log(json);
+		// for(var i = 0;i<=10;i++){
+		// 	json[i] = i*10;
+		// }
+		// console.log(json);
+	
+		// js 中new + 构造函数创建类，并不是用class 创建的，js6中已经出现类的概念
+		
+
+		// 存储和传递问题
+		//简单数据类型
+		// 	var num = 34;
+		// 	function chageSimpleData(num) {
+		// 		num = 13;
+		// 		return num;
+		// 	}
+		// 	console.log(num);
+		// 	chageSimpleData(num);
+		// 	console.log(num);
+		// //复杂数据类型
+		// 	var person = {
+		// 		name:"lisi",
+		// 		age:14
+		// 	};
+		// 	function chageCompData(person){
+		// 		person.name = "zhangsan";
+		// 		person.age = 23;
+		// 	}
+		// 	console.log(person);
+		// 	chageCompData(person);
+		// 	console.log(person);
+		
+		
+	</script>
+</body>
+</html>

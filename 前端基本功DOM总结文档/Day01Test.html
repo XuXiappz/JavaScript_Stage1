@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JSTest</title>
+		<style>
+			body{
+				line-height: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			// 1.判断当天是星期几
+			// var date = new Date(2017,11,17);
+			// var day = date.getDay();
+			// var month = date.getMonth()
+			// if (day == 0) {
+			// 	console.log("Today is 星期7");
+			// }else{
+			// 	console.log("Today is 星期"+day);
+			// }
+			
+			//2.1将百分制转成优良中可差（第一种写法）
+			// var score = Number(prompt("请输入一个分数："));
+			// switch(true){
+			// 	case score<0:
+			// 		alert("分数无效");
+			// 		break;
+			// 	case score<60:
+			// 		alert("差");
+			// 		break;
+			// 	case score<70:
+			// 		alert("可");
+			// 		break;
+			// 	case score<80:
+			// 		alert("良");
+			// 		break;
+			// 	case score<=100:
+			// 		alert("优");
+			// 		break;
+			// 	default:
+			// 		alert("非法分数录入");
+			// 		break;
+			// }
+			
+			// 2.2将百分制转成优良中可差（优化写法）
+			// var score = Number(prompt("请输入一个分数："));
+			// switch (score/10 ){
+			// 	case 10:
+			// 		alert("满分");
+			// 		break;
+			// 	case 9:
+			// 		alert("优");
+			// 		break;
+			// 	case 8:
+			// 		alert("良");
+			// 		break;
+			// 	case 7:
+			// 		alert("中");
+			// 		break;
+			// 	case 6:
+			// 		alert("可");
+			// 		break;
+			// 	default:
+			// 		alert("差");
+			// 		break;
+			// }
+
+			
+
+			// 3.打印1到100
+			// for(var i=1;i<=100;i++){
+			// 	console.log("i = " + i);
+			// }
+			
+			// 4.打印1到100的和
+			// var sum = 0;
+			// for(var i=1;i<=100;i++){
+			// 	sum += i;
+			// }
+			// console.log("the sum of 1--100 is " +sum);
+
+			// 5.打印1-100之间的所有数的和，与平均数
+			// var sum = 0;
+			// for(var i = 1;i<=100;i++){
+			// 	sum += i;
+			// }
+			// console.log("the sum of 1--100 is " + sum + " and the averge is " +sum/100);
+			// console.log("the sum of 1--100 is " + sum + " and the averge is " +sum/(i-1));/这样能让代码更加健壮
+			
+			// 6.求1--100之间的所有偶数的和所有奇数的和
+			//  var oddSum = 0;
+			//  var evenSum = 0;
+			//  for(var i = 1;i<=100;i++){
+			//  	if (i%2==0){//老师用的全等===
+			//  		evenSum += i;
+			//  	}else{
+			//  		oddSum += i;
+			//  	}
+			//  }
+			//  console.log("the odd sum of 1--100 is" + oddSum + "and the even sum is " + evenSum);
+
+			// 7.本金1000元存入银行，年利率是千分之三，美国一年，将本金和利息相加作为新的本金，计算5年后，活得的本金是多少？
+			// var baseMoney = 10000;
+			// var rate = 3.0/1000;
+			// var totalMoney = baseMoney;
+			// for (var i =1;i<=5;i++){
+			// 	totalMoney *=(1+rate);//先算加减再赋值--》totalMoney *=1+rate
+			// }
+			// console.log("五年后的本金和是"+totalMoney+"RMB");
+			
+			// 8.有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面，已知一对兔子每个月可以生下一对兔子，而一对兔子出生后第三个月起每月可以生一对兔子，假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖多少对？
+			// 兔子的规律为数列：1,1,2,3,5,8,13,21（当前项等于前两项之和 ）
+			// 现有数列再有的题，题是根据数列来的
+			// 其实就是在求斐波拉契数列
+			// 需求：求第12项的斐波拉契数的值
+			// 思路：1.用变量num1 和 num2 分别存放第一项和第二项的值
+			// 		 2.第三项的值就是第一项和第二项的和
+			// 		 3.更新第一项和第二项，进而更新第三项的值
+			// var num1 = 1;
+			// var num2 = 1;
+			// for(var i = 3;i<=12;i++){
+			// 	var tmp = num2;
+			// 	num2 = num1+tmp;
+			// 	num1 = tmp;
+			// }
+			// console.log("第12个月的兔子数是："+num2);
+
+
+			// 9.打印正方形(外层for循环控制行，内层for循环控制列)
+			// for(var i = 1;i<=2;i++){
+			// 	for(var j=1;j<=2;j++){
+			// 	 document.write("☆");
+			// 	}
+			// 	document.write("<br>");
+			// }
+
+			// 10.1打印一个直角三角形
+			// for(var i =1;j<=9;i++){
+			// 	for(var j =1;j<=i;j++){
+			// 		document.write("☆");
+			// 	}
+			// 	document.write("<br>");
+			// }
+			// 10.2打印一个正三角
+			// for(var i =1;i<=9;i++){
+			// 	var space = 9-i;
+			// 	var start = 2*i-1;
+			// 	for(var j=1;j<=space;j++){
+			// 		document.write("空");
+			// 	}
+			// 	for(var k=1;k<=start;k++){
+			// 		document.write("实");
+			// 	}
+			// 	document.write("<br/>");
+			// }
+
+			// 10.3打印一个倒三角
+			// for(var i=9;i>=1;i--){
+			// 	var space = 9-i;
+			// 	var start = 2*i-1;
+			// 	for(var j = 1; j<=space;j++){
+			// 		document.write("虚");
+			// 	}
+			// 	for(var k = 1; k<=start;k++){
+			// 		document.write("实");
+			// 	}
+			// 	document.write("<br/>");
+			// }
+			
+			// 10.4打印一个实心圆形
+			// var r = 100;
+			// var rows = 2*r;
+			// for(var i =0;i<=rows;i++){
+			// 	var colum = 2*Math.sqrt(Math.pow(r,2)-Math.pow(i,2));
+			// 	var space = r-Math.sqrt(Math.pow(r,2)-Math.pow(i,2));
+			// 	for(var j =1 ;j <=space;j++){
+			// 		document.write("&nbsp");
+			// 	}
+			// 	for(var k=1;k<=colum;k++){
+			// 		document.write("*");
+			// 	}
+			// 	document.write("<br>");
+			// }
+
+			// function printCircle(radius){
+			// 	for(var i = radius;i>=0;i--){
+			// 		var star = Math.sqrt(Math.pow(radius,2)-Math.pow(i,2));
+			// 		var space = radius-(star/2);
+			// 		for(var j=1;j<=space;j++){
+			// 			document.write("&nbsp&nbsp");
+			// 		}
+			// 		for(var k=1;k<=star;k++){
+			// 			document.write("&nbsp"+"*"+"&nbsp");
+			// 		}
+			// 		document.write("<br>");
+			// 	}
+			// 	for(var i1 = 0;i1<=radius;i1++){
+			// 		var star1 = Math.sqrt(Math.pow(radius,2)-Math.pow(i1,2));
+			// 		var space1 = radius-(star1/2);
+			// 		for(var j1=1;j1<=space1;j1++){
+			// 			document.write("&nbsp&nbsp");
+			// 		}
+			// 		for(var k1=1;k1<=star1;k1++){
+			// 			document.write("&nbsp"+"*"+"&nbsp");
+			// 		}
+			// 		document.write("<br>");
+					
+			// 	}
+			// }
+			// printCircle(10);
+			
+
+			// function printCircle(radius,a,b){
+			// 	for(var i=0;i<radius;i++){
+			// 		for(var j=0;j<radius;j++){
+			// 			if (Math.pow(j,2)<=Math.pow(radius,2) - Math.pow(i,2)){
+			// 				document.write("圆");
+
+			// 			}else{
+			// 				document.write("空");
+			// 			}
+						
+			// 		}
+			// 		document.write("<br>");
+			// 	}
+			// }
+
+
+			// function printCircle(radius,a,b){
+			// 	for(var i=b-radius;i<b+radius;i++){
+			// 		for(var j=a-radius;j<a+radius;j++){
+			// 			if (Math.pow(j-a,2)<=Math.pow(radius,2) - Math.pow(i-b,2)){
+			// 				document.write("圆");
+
+			// 			}else{
+			// 				document.write("空");
+			// 			}
+						
+			// 		}
+			// 		document.write("<br>");
+			// 	}
+			// }
+
+			// function printCircle(radius,a,b){
+			// 	for(var i=0;i<b+radius;i++){
+			// 		for(var j=0;j<a+radius;j++){
+			// 			if (Math.pow(j-a,2)<=Math.pow(radius,2) - Math.pow(i-b,2)){
+			// 				document.write("圆");
+
+			// 			}else{
+			// 				document.write("空");
+			// 			}
+						
+			// 		}
+			// 		document.write("<br>");
+			// 	}
+			// }
+
+			// printCircle(30,70,60);
+			// 10.4打印一个椭圆
+
+			// 11.九九乘法表(低配版)
+			// for(var i=1; i<=9; i++){
+			// 	for(var j=1;j<=i; j++){
+			// 		document.write(i+"*"+j+" = "+i*j+"  ");
+			// 	}
+			// 	document.write("<br>");
+			// }
+			
+			//12.九九乘法表（含H5标签版）
+			// document.write("<table border='1'>");
+			// for(var i=1; i<=9; i++){
+			// 	document.write("<tr>")
+			// 	for(var j=1;j<=i; j++){
+			// 		document.write("<td>"+i+"*"+j+" = "+i*j+"  "+"</td>");
+			// 	}
+			// 	document.write("</tr>");
+			// }
+			// document.write("</table>");
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Day04Test</title>
+</head>
+<body>
+	<script>
+		// var arr1 = new Array();//空数组
+		// var arr2 = new Array(3);//创建了长度为3的数组
+		// var arr3 = new Array("a","b","c");//创建有a,b,c字符串的数组
+		// var arr4 = new Array("a","b","c",);//创建有a,b,c字符串的数组
+		// var arr5 = new Array(1,2,3,4);//创建包含有1,2,3,4数字的数组
+		
+
+		// var arr1 = [];//空数组
+		// var arr2 = ["a","b","c"];//创建有a,b,c字符串的数组
+		// var arr3 = ["a","b","c",];//创建有a,b,c字符串的数组
+		// var arr4 = [1,2,3,4];//创建包含有1,2,3,4数字的数组
+		// var arr5 = [1,2,3,4,];//创建包含有1,2,3,4数字的数组
+		// var arr6 = [,,];//创建长度为2的数组
+
+		// console.log(arr1);
+		// console.log(arr2);
+		// console.log(arr3);
+		// console.log(arr4);
+		// console.log(arr5);
+		// console.log(arr6);
+		
+		// var colors = [undefined,null,"yellow"];
+		// console.log(colors);
+		
+
+		//length 新增
+		// colors.length = 4;
+		// console.log(colors);
+		// console.log(colors[3]);
+		
+		// length 减少
+		// colors.length = 2;
+		// console.log(colors);
+		// console.log(colors[3]);
+		
+		// 检测数组的方法
+		// console.log(colors instanceof Array);
+		// console.log(Array.isArray(colors));
+
+		// 数组的转换方法
+		// console.log(colors.toString());
+		// console.log(colors.valueOf());
+		// console.log(colors.toLocaleString());
+		
+
+		// var person1 = {
+		// 	toLocaleString:function(){
+		// 		return "person1AA";
+		// 	},
+		// 	toString:function(){
+		// 		return "person1aa";
+		// 	}
+		// };
+		// var person2 = {
+		// 	toLocaleString:function(){
+		// 		return "person2AA";
+		// 	},
+		// 	toString:function(){
+		// 		return "person2aa";
+		// 	}
+		// };
+		// var arry = [person1,person2];
+		// console.log(arry.toString());
+		// console.log(arry.toLocaleString());
+		// console.log(colors.join());
+		// console.log(colors.join(undefined));
+		// console.log(colors.join("##"));
+		 
+		
+		//栈方法
+		// var colors = ["orange","yellow"];
+		// var count = colors.push("red","green");
+		// console.log(colors);
+		// console.log(count);
+
+		// var item = colors.pop();
+		// console.log(item);
+		// console.log(colors);
+		
+
+		// 正向队列
+		// var colors = ["orange","yellow"];
+		// colors.push("blue","red");
+		// console.log(colors);
+		// colors.shift();
+		// console.log(colors);
+		
+
+		// 逆向队列
+		// var colors = ["orange","yellow"];
+		// colors.unshift("red","green");
+		// console.log(colors);
+		// colors.pop();
+		// console.log(colors);
+
+		// 重排序
+		// 1.翻转排序
+		// var arry=["zhangfei","guanyu","liubei"];
+		// arry.reverse();
+		// console.log(arry);
+
+		// sort排序默认方法
+		// var arry=[1,2,5,34,12,3,4,12];
+		// arry.sort();
+		// console.log(arry);
+
+		// sort 升序排序
+		// function compare1(num1,num2){
+		// 	if(num1>num2){
+		// 		return 1;
+		// 	}else if (num1 == num2){
+		// 		return 0;
+		// 	}else{
+		// 		return -1;
+		// 	}
+		// }
+		// arry.sort(compare1);
+		// console.log(arry);
+		// sort 降序排序
+		// function compare(num1,num2){
+		// 	if (num1>num2){
+		// 		return -1;
+		// 	}else if(num1 == num2){
+		// 		return 0;
+		// 	}else{
+		// 		return 1;
+		// 	}
+		// }
+		// arry.sort(compare);
+		// console.log(arry);
+
+		// 排序方法的优化
+		// function compare3(num1,num2){
+		// 	return num2-num1;
+		// }
+		// console.log(arry.sort(compare3));
+
+		//操作方法
+	    // 1.concat合并
+	    // var colors = ["red","yellow"];
+	    // var colorsTmp = ["purple","allple"];
+	    // var colors2 = colors.concat("blue","orange",colorsTmp);
+	    // console.log(colors2);
+	    // console.log(colors);
+	    
+	    //2.slice 截取
+	    // var arry = [1,2,3,4,5,6,7,8];
+	    // var arr1 = arry.slice();
+	    // var arr2 = arry.slice(3,7);
+	    // var arr3 = arry.slice(7);
+	    // var arr4 = arry.slice(5,2);
+	    // var arr5 = arry.slice(-4,-3);
+	    // console.log(arry);
+	    // console.log(arr1);
+	    // console.log(arr2);
+	    // console.log(arr3);
+	    // console.log(arr4);
+	    // console.log(arr5);
+	    
+	    //3.删除与替换
+	   //  var arry = [1,2,3,4,5,6,7];
+	   //  var arry1 = ["a","b","c"];
+	   //  arry.splice(2,1,"a");
+  		// console.log(arry);
+
+  		//4.位置方法
+  		// var arry = ["a","b","c","d","e","a"];
+  		// console.log(arry.indexOf("a",1));
+  		// console.log(arry.lastIndexOf("a",1));
+		
+  		// 5.迭代方法
+  		// var number =[1,2,3,4,5,6,7,8];
+  		// var everyResult = number.every(function(item,index,array){
+  		// 	return item >=2;
+  		// });
+  		// var someResult = number.some(function(item,index,array){
+  		// 	return item >= 3;
+  		// });
+  		// var mapResult = number.map(function(item,index,array){
+  		// 	return item >= 4;
+  		// });
+  		// var filterResult = number.filter(function(item,index,array){
+  		// 	return item >= 5;
+  		// });
+  		// number.forEach(function(item,index,array){
+  		// 	if(item >= 6){
+  		// 		console.log("forEachResult: " + item*2);
+  		// 	}
+  			
+  		// })
+  		// console.log(everyResult);
+  		// console.log(someResult);
+  		// console.log(mapResult);
+  		// console.log(filterResult);
+  		
+  		// 归并方法
+  		// var values = [1,2,3,4,5];
+  		// var sum = values.reduce(function(prev,cur,index,arr){
+  		// 	return prev+cur;
+  		// })
+  		// console.log("the sum "+ values.join("+") + " = " +sum);
+  		
+  		// // 字符方法
+  		// var str = "hello world";
+  		// console.log(str.charAt(0));
+  		// console.log(str.charCodeAt(0));
+
+  		// //字符串方法
+  		// var tmp1 = "hello ";
+  		// var tmp2 = "world";
+  		// console.log(tmp1.concat(tmp2,"!"));
+
+  		// 字符串截取函数
+  		var str = "hello world";
+  		// Slice()方法
+  		// console.log(str.slice());
+  		// console.log(str.slice(0,3));
+  		// console.log(str.slice(10,3) === "");//参数无效返回空串
+  		// console.log(str.slice(-11,-8));
+  		
+  		//substring()方法
+  		// console.log(str.substring());
+  		// console.log(str.substring(0,3));
+  		// console.log(str.substring(10,3));
+  		// console.log(str.substring(3,-8));
+		
+		// substr()方法
+		// console.log(str.substr());
+		// console.log(str.substr(3,3));
+		// console.log(str.substr(10,3));
+		// console.log(str.substr(-8,-7) === "");
+		
+		//字符串位置方法
+		// console.log(str.indexOf("o"));
+		// console.log(str.indexOf("o",3));
+		// console.log(str.lastIndexOf("o"));
+		// console.log(str.lastIndexOf("o",7));
+		// var position = [];
+		// var pos = str.indexOf("l");
+		// while(pos >-1){
+		// 	position[position.length] = pos;
+		// 	pos = str.indexOf("l",pos+1);
+		// }
+		// console.log(position);
+	
+		// 删除字符串前后的空格
+		// var str = "   hello wolrd hello yjp  ";
+		// console.log("2222"+str.trim()+"111");
+		
+	 	//大小写转换
+	 	// var str = "Hello World";
+	 	// console.log(str.toLocaleUpperCase());
+	 	// console.log(str.toLocaleLowerCase()); 
+	 	// console.log(str.toUpperCase());
+	 	// console.log(str.toLowerCase());
+		
+		//字符串比较方法
+		// var str = "yellow";
+		// console.log(str.localeCompare("black"));
+		// console.log(str.localeCompare("Yellow"));
+
+		// 编码转字符串方法
+		// console.log(String.fromCharCode(104,101,108,108,111));
+		
+		// 数组方法练习题
+		// |分割数组
+		// var arr = ["刘备","张飞","关羽"];
+		// console.log(arr.join("|"));
+
+		// 翻转数组
+		// function reverse1(array){
+		// 	console.log(array.reverse());
+		// }
+		// function reverse2 (array){
+		// 	for(var i = 0;i<array.length/2;i++){
+		// 		var tmp = array[i];
+		// 		array[i] = array[array.length-1-i];
+		// 		array[array.length-1-i] = tmp;
+		// 	}
+		// 	console.log(array);
+		// }
+		
+		//工资超过2000的删除
+		// var wages = [1500,1200,2000,2100,1800];
+		// var lessThanLine = wages.filter(function(item,index,arrray){
+		// 	if (item <=2000){
+		// 		return true;
+		// 	}
+		// })
+		// console.log(lessThanLine);
+		
+		// 找到数组所有a所在的位置
+		// var letterArr = ["c","a","z","a","x","a"];
+		// function fundLetter(letterArr,str){
+		// 	var position = [];
+		// 	var pos = letterArr.indexOf(str);
+		// 	var n = 0;
+		// 	while(pos>-1){
+		// 		position[position.length] = pos;
+		// 		pos = letterArr.indexOf(str,pos+1);
+		// 	}
+		// 	return position;
+		// }
+		// console.log(fundLetter(letterArr,"a"));
+		
+		//取出数组中的重复元素
+		// var letterArr = ["c","a","z","a","x","a","x","j","z"];
+		// function deleteRepeatLetter(letterArr,str){
+		// 	for(var i = 0;i < letterArr.length;i++){
+		// 		if(letterArr.indexOf(letterArr[i])<i){
+		// 			letterArr.splice(i,1,"flag");
+		// 		}
+		// 	}
+		// 	return letterArr.filter(function(item,index,array){
+		// 		return item !=="flag";
+		// 	})
+		// }
+		// console.log(deleteRepeatLetter(letterArr,"a"));
+	
+		// 时间对象
+		//传入一个时期对象，返回yyyy-MM-dd HH:mm:ss 形式的字符串
+		
+		// 字符串练习
+		// 1.截取字符串"我爱中华人民共和国"，中的"中华"
+		// var str = "我爱中华人民共和国";
+		// console.log(str.slice(2,4));
+		// console.log(str.substring(2,4));
+		// console.log(str.substr(2,2));
+
+		// 2.获取abcoefoxyozzopp出现的所有位置
+		// var str = "abcoefoxyozzopp";
+		// // var substr = "o";
+		// function fundLetterPostion(str,subStr){
+		// 	var position = [];
+		// 	var pos = str.indexOf(subStr);
+		// 	while(pos >-1){
+		// 	    position.push(pos);
+		// 	    pos = str.indexOf(subStr,pos+1);
+		// 	}
+		// 	return position;
+		// }
+		// console.log("the result is: "  );
+		// console.log(fundLetterPostion(str,substr));
+
+		// 将字符串中所有的o替换为！
+		// var resultArr = fundLetterPostion(str,substr);
+		// var resultStr = "";
+		// for(var i = 0;i < str.length; i++){
+		// 	if(resultArr.indexOf(i) >-1){
+		// 		resultStr += "!";
+		// 	}else{
+		// 		resultStr += str.substr(i,1);
+		// 	}
+		// }
+		// console.log(resultStr);
+
+		// 判断一个字符串只给你出现次数最多的字符，并统计这个次数
+		// function getCharCntArr(str){
+		// 	var cntArr = []
+		// 	for(var i = 0;i < str.length; i++){
+		// 		var tmp = str.substr(i,1);
+		// 		cntArr[cntArr.length] = fundLetterPostion(str,tmp).length;
+		// 	}
+		// 	return cntArr;
+		// }
+		
+		// var cntArr = getCharCntArr(str);
+
+		// function getMaxCntAndChar(str,cntArr){
+		//  	var max = cntArr[0];
+		//  	var maxIndex = 0;
+		//  	for(var i = 1;i< cntArr.length;i++){
+		//  		if (max < cntArr[i]){
+		//  			max = cntArr[i];
+		//  			maxIndex = i;
+		//  		}
+		//  	}
+		//  	console.log(" the max char is " + str.substr(maxIndex,1) + " and the count is "+ max);
+		// }
+		// getMaxCntAndChar(str,cntArr);
+		
+		// abaasdffggghhjjkkgfddsssss3444343
+		var  str = "abaasdffggghhjjkkgfddsssss3444343";
+		// 1、 字符串的长度 
+		// console.log(str.length);
+		
+		// 2.取出指定位置的字符，如：0,3,5,9等 
+		// function getStrByArr(str,posArr){
+		// 	var resultStr = "";
+		// 	for(var i = 0;i<posArr.length;i++){
+		// 		resultStr += str.substr(posArr[i],1);
+		// 	}
+		// 	return resultStr;
+		// }
+		// console.log(getStrByArr(str,[0,3,,5,9]));
+		
+		// 3.查找指定字符是否在以上字符串中存在，如：i，c ，b等
+		// function isExitInStr(str,subStr){
+		// 	if (str.indexOf(subStr) > -1){
+		// 		return true;
+		// 	}
+		// 	return false;
+		// }
+		// console.log(isExitInStr(str,"i"));
+		// console.log(isExitInStr(str,"c"));
+		// console.log(isExitInStr(str,"b"));
+		
+		// 4.替换指定的字符，如：g替换为22,ss替换为b等操作方法
+		// 
+		
+		// 5.截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+		// function getSubStr(str,start,end){
+		// 	return str.slice(start,end+1);
+		// }
+		// console.log(getSubStr(str,5,10));
+	
+		// 6.找出以上字符串中出现次数最多的字符和出现的次数
+		
+		// 7.遍历字符串，并将遍历出的字符两头添加符号“@”输出至当前的文档页面
+		
+		// 匿名函数的调用和执行
+		// (function (){
+		// 	console.log("hello niming");
+		// })();
+		
+		// 匿名函数与事件绑定
+		// document.onclick = function(){
+		// 	console.log("click click document");
+		// }
+		
+		// 匿名函数与定时器
+		// setInterval(function(){
+		// 	console.log("444");
+		// },1000);
+		
+		// 函数的递归
+		//递归求斐波那契数列
+		// function getForitalNum(n){
+		// 	if(n === 1 ||n ===2){
+		// 		return 1;
+		// 	}else{
+		// 		return getForitalNum(n-1)+getForitalNum(n-2);
+		// 	}
+		// }
+		// console.log(getForitalNum(9));
+		
+		// 回调函数
+		// function fn(demo){
+		// 	demo();
+		// }
+		// function test(){
+		// 	console.log("just for test");
+		// }
+		
+		// fn(test);
+		
+
+		// 创建单个对象
+		// var student = new Object();
+		// student.name = "yjp";
+		// student.age = 23;
+		// student.sayHi = function (){
+		// 	console.log(this.name + " say hello to everyone");
+		// }
+		// console.log(student);
+		// student.sayHi();
+		
+		// 创建多个对象
+	    // function createStudent(name,age){
+	    // 	var student = new Object();
+	    // 	student.name = name;
+	    // 	student.age = age;
+	    // 	student.sayHi = function (){
+	    // 		console.log(this.name + " say  hello to everyone");
+	    // 	};
+	    // 	return student;
+	    // }
+
+	    // var student1 = createStudent("yjp",23);
+	    // var student2 = createStudent("xx",23);
+	    // console.log(student1);
+	    // console.log(student2);
+	    // student1.sayHi();
+	    // student2.sayHi();
+	    
+		// 用构造方法创建对象
+			// function Student(name,age){
+			// 	this.name = name;
+			// 	this.age = age;
+			// 	this.sayHi = function (){
+			// 		console.log(this.name + " say hi to everyone");
+			// 	};
+			// }
+
+			// var stu1 = new Student("yjp",23);
+			// var stu2 = new Student("xx",23);
+			// console.log(stu1);
+			// console.log(stu2);
+			// stu1.sayHi();
+			// stu2.sayHi();
+	</script>
+</body>
+</html>
