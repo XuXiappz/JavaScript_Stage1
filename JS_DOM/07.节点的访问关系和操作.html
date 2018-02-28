@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07.节点的访问关系和操作</title>
+	<style>
+	.box1{
+		width: 300px;
+		height: 300px;
+		background-color: deepskyblue;
+	}
+	</style>
+</head>
+<body>
+	1.节点的访问（关系是以属性形式存在的） <br>
+	1）获取某个结点，之前已经说过 <br>
+	2）获取某个结点的父结点 <br>
+	3）获取某个结点的兄弟结点 <br>
+	4）获取某个结点的第一子结点 <br>
+	5）获取某个结点的所有子节点 <br>
+	 
+	2.对结点的操作： <br>
+	1）创建一个新的节点 <br>
+	2）添加节点 <br>
+	2.1在前添加： <br>
+	2.2在后追加； <br>
+	3）删除节点 <br>
+	3.1删除自己的子节点 <br>
+	3.3将自己从父节点中删除 <br>
+	4）克隆节点 <br>
+	4.1不带true克隆 <br>
+	4.2带true克隆 <br>
+
+	<div class="box1" id="box1">
+		<div class="box1-1" id="box1-1">
+			<div class="box1-1-1" id="box1-1-1"></div>
+		</div>
+		<div class="box1-2" id="box1-2"></div>
+	</div>
+	<script>
+		// 对结点的访问
+		/*console.log("获取box1-1-1节点");
+		var boxSun = document.getElementById("box1-1-1");
+		console.log(boxSun);
+		console.log("box1-1-1节点的父节点");
+		console.log(boxSun.parentNode);
+		var boxChild1 = document.getElementById("box1-1");
+		console.log("获取box1-1节点");
+		console.log(boxChild1);
+		console.log("获取box1-1的下一个兄弟结点");
+		console.log(boxChild1.nextElementSibling);
+		console.log("获取box1的第一个子节点");
+		console.log(document.getElementById("box1").firstElementChild);
+		console.log("获取box1的所有子节点");
+		console.log(document.getElementById("box1").children);  
+		console.log(document.getElementById("box1").childNodes); //问题，这里的text是什么呢？
+		*/
+		// 对结点的操作
+		console.log("创建节点");
+		var boxA = document.createElement("div");
+		boxA.style.width="40px";
+		boxA.style.height="40px";
+		boxA.style.backgroundColor="pink";
+		var boxB = document.createElement("abdcd");
+		console.log(boxA);
+		console.log(boxB);
+		console.log("添加节点");
+		// 注意，是父节点，追加子结点
+		var box1 = document.getElementById("box1");
+		var boxC = document.createElement("img");
+		boxC.src="image/jd1.png";
+		box1.appendChild(boxA);
+		box1.insertBefore(boxC,boxA);
+		console.log("删除节点");
+		//注意，是父节点删除子结点的逻辑
+		box1.removeChild(boxA);
+		// boxC.parentNode.removeChild(boxC);
+		//克隆
+		// var boxD = boxC.cloneNode();
+		var boxD = boxC.cloneNode(true);
+		box1.appendChild(boxD);
+
+	</script>
+
+</body>
+</html>

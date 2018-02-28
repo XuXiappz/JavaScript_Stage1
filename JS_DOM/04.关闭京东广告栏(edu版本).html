@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.关闭京东广告栏(edu版本)</title>
+	<style>
+		.ad-banner{
+			width: 980px;
+			height: 80px;
+			margin: 0 auto;
+			background-color: pink;
+			position: relative;
+		}
+		.ad-close{
+			width: 25px;
+			height: 25px;
+			background-color:#000;
+			color: #fff;
+			font: 700 12px/25px "simsum";
+			position: absolute;
+			top: 10px;
+			right: 50px;
+			text-align: center;
+		}
+		.hide{
+			display: none!important;
+		}
+	</style>
+</head>
+<body>
+	1.思路问题：<br>
+	1）先将html+css写出来<br>
+	2）JS代码：<br>
+		事件三要素：2.1获取事件源：close方块<br>
+					2.2事件绑定驱动程序：事件源.点击事件=匿名函数（）驱动程序
+					2.3书写驱动程序：key：利用隐藏类实现,display=none;<br>
+
+	<div class="ad-banner" id="ad-banner">
+		<div class="ad-close" id="ad-close">X</div>
+	</div>
+	<script>
+		var closeBox = document.getElementById("ad-close");
+		closeBox.onclick=function(){
+			document.getElementById("ad-banner").className += " hide"; //此处是保留原来类名，新增hide类名
+			// 此处实现相同效果的方法有;
+			// 1.document.getElemnetById("ad-banner").className = "hide";此处是替换原来的类名为hide
+			// 2.document.getElemnetById("ad-banner").style.display="none";
+		}
+	</script>
+</body>
+</html>

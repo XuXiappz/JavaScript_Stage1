@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08.节点的属性</title>
+</head>
+<body>
+	1.获取元素属性的方法 <br>
+	1）元素节点.属性名； <br>
+	2）元素节点[属性名]; <br>
+	2.对元素属性的操作 <br>
+	1)元素节点.方法（） <br>
+	其中的方法有： <br>
+	1.1获得元素某个属性的值:eleNode.getAttribute("id");<br>
+	1.2设置元素某个属性的值：eleNode.setAtttibute("id"，"test-id");<br>
+	1.3删除元素某个属性的值：eleNode.removeAttribute("id")	<br>		
+
+	<img src="image/jd2.png" class="box" title="JD狗狗" alt="JD绿狗狗" id="aaa">
+	<script>
+		window.onload = function(){
+			//1.元素结点属性的访问
+			var eleNode = document.getElementsByTagName("img")[0];
+			eleNode.src = "image/jd1.png";
+			eleNode.test = "test11";//对新的属性也可以进行赋值
+			console.log(eleNode.test);
+			console.log(eleNode.title);
+			console.log(eleNode["title"]);
+
+			// 2.元素节点属性的方法使用
+			eleNode.setAttribute("src","image/jd2.png");
+			console.log(eleNode.getAttribute("src"));
+			eleNode.removeAttribute("test");//如果是id的话是可以移除，但是自定义是不能处理的
+			console.log(eleNode.test);
+
+		}
+	</script>
+</body>
+</html>

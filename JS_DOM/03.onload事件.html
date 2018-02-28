@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.onload事件</title>
+	<style>
+		#test-id{
+			background-color: greenyellow;
+		}
+	</style>
+</head>
+<body>
+	1.onload事件：是指当页面加载（文本和图片）完毕时会触发的事件 <br>
+	2.问题：js的加载和html的加载是同步进行的，如果使用元素在定义元素之前，容易报错 <br>
+	3.将使用元素的js代码放到onload事件中，就可以预防2中描述的问题 <br>
+
+	<script>
+		window.onload = function(){
+			var box = document.getElementById("test-id");
+			console.log(box);
+			box.style.width="100px";
+			box.style.height="200px";
+			box.style.backgroundColor="yellow";//注意css中-命名更换为驼峰命名即可
+		}
+	</script>
+	<div id="test-id"></div>
+</body>
+</html>

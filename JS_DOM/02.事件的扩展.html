@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02.事件的扩展</title>
+	<style>
+		div{
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+			margin: 0px 10px;
+		}
+		#test-id{
+			background-color:blue;
+		}
+		.test-class{
+			background-color: deepskyblue;
+		}
+	</style>
+</head>
+<body>
+	事件的三要素：<br>
+	1.事件源：引发后续事件的事物（html标签) <br>
+	2.事件：由js定义好的一些触发条件（例如点击，触摸，滚动等等）<br>
+	3.事件驱动程序：（对样式html的操作，也就是dom操作）<br>
+	事件扩展<br>
+	1.获取事件源的方法： <br>
+ 	1）document.getElementById("id名") <br>
+ 	2) document.getElementsByClassName("类名") <br>
+ 	3) documnet.getElementsByTagName("标签名") <br>
+ 	2.事件的绑定： <br>
+ 	1）匿名绑定： <br>
+ 	div.onclick = function(){xxxx}; <br>
+ 	2) 函数名绑定： <br>
+ 	function fn（）{xxxxx}; <br>
+ 	div.onclick = fn; <br>
+ 	3) 行内绑定 <br>
+ 	&ltdiv id ="box" onclick="fn()"&gt&lt/div&gt <br>
+ 	案例： <br>
+ 	<div id="test-id"></div>
+ 	<div class="test-class"></div>
+ 	<div onclick="fn1()"></div>
+ 	<script>
+ 		var box1 = document.getElementById("test-id");
+ 		box1.onclick = function(){alert("我是test-id&&你匿名函数绑定事件")}
+ 		var arr1= document.getElementsByClassName("test-class");
+ 		var box2 = arr1[0];
+ 		function fn(){alert("我是test-class&&函数名绑定")};
+ 		box2.onclick = fn;
+ 		var arr2 = document.getElementsByTagName("div");
+ 		var box3 = arr2[2];
+ 		function fn1(){alert("我是tagName&&行内绑定")};
+ 	</script>
+</body>
+</html>

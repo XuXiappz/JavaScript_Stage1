@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 方法一 -->
+<head>
+	<meta charset="UTF-8">
+	<title>10.显示和影藏盒子</title>
+	<style>
+		.txt-con{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		.txt-hiden{
+			display: none;
+		}
+		.txt-show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	需求：点击按钮（显示/隐藏）实现盒子的显示/隐藏 <br>
+	步骤： <br>
+	UI布局的实现 <br>
+	事件三要素： <br>
+	1）事件源：点击按钮 <br>
+	2）事件：按钮的点击 <br>
+	3）事件驱动程序：实现盒子的显示和隐藏，以及点击按钮的名字变化 <br>
+	
+	<input type="button" id="hide-show-btn" value ="隐藏">
+	<div class="txt-con txt-show" id="txt-con">临千仞之溪，非长才也，位高也！</div>
+	<script>
+		window.onload = function(){
+			var switchBtn = document.getElementById("hide-show-btn");
+			var txtCon = document.getElementById("txt-con");
+			switchBtn.onclick=function(){
+				if (switchBtn.value === "隐藏") {
+					switchBtn["value"] = "显示";
+					txtCon.className = "txt-con txt-hiden";
+				}else{
+					switchBtn["value"] = "隐藏";
+					txtCon.className = "txt-con txt-show";
+				}
+			}
+		}
+	</script>
+</body>
+
+<!-- 方法二 -->
+<!-- <head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        button {
+            margin: 10px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="btn">隐藏</button>
+    <div>
+        临千仞之溪，非才长也，位高也！
+    </div>
+
+    <script>
+        //需求：点击button,隐藏盒子。改变文字，在点击按钮，显示出来。
+        //步骤：
+        //1.获取事件源和相关元素
+        //2.绑定事件
+        //3.书写事件驱动程序
+
+        //1.获取事件源和相关元素
+        var btn = document.getElementById("btn");
+        var div = document.getElementsByTagName("div")[0];
+        //2.绑定事件
+        btn.onclick = function () {
+            //3.书写事件驱动程序
+            //判断btn的innerHTML属性值，如果为隐藏就隐藏盒子，并修改按钮内容为显示。
+            //反之，则显示，并修改按钮内容为隐藏
+            if(this.innerHTML === "隐藏"){
+                div.className = "hide";
+                //修改文字（innerHTML）
+                btn.innerHTML = "显示";
+            }else{
+                div.className = "show";
+                //修改文字（innerHTML）
+                btn.innerHTML = "隐藏";
+            }
+        }
+
+    </script>
+
+</body> -->
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05.京东狗</title>
+	<style>
+		#JD-flick-pic{
+			border: 2px solid red;	
+		}
+	</style>
+</head>
+<body>
+	需求;鼠标放在图片上修改图片路径进而实现图片更换 <br>
+	思路： <br>
+		1.获取事件源 <br>
+		2.绑定鼠标悬停事件 <br>
+		3.书写驱动程序（更换图片的地址） <br>
+	注意点: <br>
+	1）绑定匿名函数中的this 和事件源等同 <br> 
+	<img id="JD-flick-pic" src="image/jd1.png" alt="红狗狗">
+	<script>
+		var img = document.getElementById("JD-flick-pic");
+		img.onmouseover = function(){
+			img.src="image/jd2.png";
+			img.alt="绿狗狗";
+			img.style.border="2px solid green";
+		}
+		img.onmouseout = function(){
+			img.src="image/jd1.png";
+			img.alt="红狗狗";
+			img.style.border="2px solid red";
+		}
+	</script>
+</body>
+</html>

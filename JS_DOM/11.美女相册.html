@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11.美女相册</title>
+	<style>
+		body{
+			background-color: gray;
+			padding-left: 100px;
+		}
+		.part-title{
+			font: 700 16px 微软雅黑;
+		}
+		.btn-regist{
+			font-weight: 700;
+			color: orange;
+		}
+		.pic-samll-con{
+			height: 60px;
+			margin: 20px 0px;
+		}
+		ul,li{
+			list-style: none;
+			float: left;
+			padding: 0px;
+			margin: 0 10px 0 0;
+		}
+		ul li a{
+			display: inline-block;
+			width: 100px;
+			height: 60px;
+			border: 2px solid green;
+		}
+		ul li img{
+			width: 100px;
+		}
+		#pic-big{
+			color: #333;
+			width: 450px;
+			text-align: center;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	需求：<br>
+		1)首次进入界面的时候，显示4个小图片，大图位置为图片尺寸要求，文字为“选择一个图片”; <br>
+		2)随后点击每个图片时，打图标签显示小图的打图信息,而文字描述为图片name; <br>
+	步骤：
+		1)先实现界面布局；<br>
+		2)事件三要素：<br>
+		2.1:事件源：4个小图<br>
+		2.2：事件：4个小图的点击事件<br>
+		2.3：事件驱动程序：让大图的显示，以及文字描述关联为所点击的小图信息；<br>
+
+	<p class="part-title">美女画廊</p>
+	<p class="btn-regist">注册</p>
+	<div class="pic-samll-con">
+		<ul>
+			<li><a href="image/1.jpg" id="btn1" title="美女1"><img src="" id="img1" alt=""></a></li>
+			<li><a href="image/2.jpg" id="btn2" title="美女2"><img src="" id="img2" alt=""></a></li>
+			<li><a href="image/3.jpg" id="btn3" title="美女3"><img src="" id="img3" alt=""></a></li>
+			<li><a href="image/4.jpg" id="btn4" title="美女4"><img src="" id="img4" alt=""></a></li>
+		</ul>
+	</div>
+	<div class="pic-big" id ="pic-big-con"><img src="image/placeholder.png" id="pic-big" alt="" width="450px"></div>
+	<div class="pic-des" id="pic-des">选择一个图片</div>
+	<script>
+		window.onload = function(){
+			var bigPic = document.getElementById("pic-big");
+			var picDse = document.getElementById("pic-des");
+			for(var i = 1;i<=4;i++){
+				var tmpImg = document.getElementById("img"+i);
+				tmpImg.src = "image/"+i+"-small.jpg";
+				var tmpBtn = document.getElementById("btn"+i);
+				tmpBtn.onclick = function (){
+					bigPic.src = this.href; //this指的是函数调用者，和i并无关系，所以不会出错。
+					picDse.innerHTML = this.title;
+					return false;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

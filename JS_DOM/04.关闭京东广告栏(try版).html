@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.关闭京东广告栏(try版)</title>
+	<style>
+		#ad-banner{
+			height: 50px;
+			background-color: pink;
+			position: relative;
+		}
+		#close-banner{
+			width: 20px;
+			height: 20px;
+			color: #fff;
+			background-color: #000;
+			font: 400 12px/20px 微软雅黑;
+			text-align: center;
+			position: absolute;
+			right: 400px;
+			top: 0px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload=function(){
+			var closeBox = document.getElementById("close-banner");
+			closeBox.onclick = function(){
+				var adBox = document.getElementById("ad-banner");
+				adBox.style.display="none";
+			}
+		}
+	</script>
+	<div id="ad-banner">
+		<div id="close-banner">X</div>
+	</div>
+</body>
+</html>

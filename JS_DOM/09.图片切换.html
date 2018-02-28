@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09.图片切换</title>
+</head>
+<body>
+	需求：点击切换a标签，实现图片的更换  <br>
+	步骤：事件三要素： <br>
+		1）事件源：切换a标签 <br>
+		2）事件：a标签的点击事件 <br>
+		3）事件驱动程序：利用匿名函数，实现img的src路径的修改 <br>
+	 <a href="#">切换</a>
+	 <br>
+	 <img src="image/1-small.jpg" title ="美女一">
+	 <script>
+	 	var switchA = document.getElementsByTagName("a")[0];
+	 	var flag = 1;
+	 	switchA.onclick = function(){
+	 		flag = flag==1 && 2 || 1;
+	 		var img = document.getElementsByTagName("img")[0];
+	 		img["src"] = flag ==1 && "image/2-small.jpg" || "image/1-small.jpg" ;
+	 		var title = flag ==1 && "美女一" || "美女二" ;
+	 		img.setAttribute("title",title);
+	 		return false;//这里return false的母的是禁止a连接的跳转
+	 	}
+	 </script>
+</body>
+</html>
