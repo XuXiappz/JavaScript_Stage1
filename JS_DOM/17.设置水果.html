@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17.设置水果</title>
+</head>
+<body>
+	需求:点击识别水产，立刻把option对应的鲤鱼选择的属性设置为selected; <br>
+	步骤： <br>
+	1.实现ui布局 <br>
+	2.事件的三要素： <br>
+	1）事件源：所有的选项 <br>
+	2）事件：选中/取消按钮的点击事件 <br>
+	3）事件驱动：让鲤鱼选项选中/取消 <br>
+	
+	<button id="btn-do">识别鲤鱼</button>
+	<button id="btn-cacle">去掉</button>
+	<br> <br>
+	<select id="sel-goods" multiple>
+		<option value="bananl">巴拉</option>
+		<option value="apple">苹果</option>
+		<option value="fish">鲤鱼</option>
+		<option value="pear">梨</option>
+		<option value="pear">桃子</option>
+		<option value="pear">山竹</option>
+	</select>
+		<script>
+			window.onload=function(){
+				var btnDo = document.getElementById("btn-do");
+				var btnCacle = document.getElementById("btn-cacle");
+				var selGoods = document.getElementById("sel-goods");
+				var goods = selGoods.getElementsByTagName("option");//可以缩小父类的dom节点范围
+				btnDo.onclick = function(){
+					goods[2].selected = true;
+				}
+				btnCacle.onclick = function(){
+					goods[2].selected = false;
+				}
+			}
+		</script>
+</body>
+</html>

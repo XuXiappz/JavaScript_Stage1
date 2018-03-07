@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15.文本框获取焦点</title>
+	<style>
+		input{
+			color: #ccc;
+			font-size: 12px;
+			height: 30px;
+			width: 200px;
+		}
+		.tbInput-con{
+			position: relative;
+		}
+		.tbInput-text{
+			position: absolute;
+			left: 60px;
+			top: 25%;
+			color: #ccc;
+			font-size: 12px;
+	     	cursor: text;
+		}
+		.show{
+			display: inline-block;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	需求： <br>
+	京东条：默认有个"我是京东"；获取焦点：清空；失去焦点：判空是，"我是京东" <br>
+		淘宝和placeholder条：默认有个palceholder“我是淘宝/placeholder”；获取焦点没有变化；输入文字时：清空placeholder；失去焦点判空：“
+		我是淘宝/placeholder“ <br>
+	步骤： <br>
+	1.UI的布局：（注意可以利用label实现类似placeholder的效果） <br>
+	2.事件三要素：1.事件源：就是京东，淘宝，placeholder三个input； <br>
+				2.事件：事件源的获取焦点，失去焦点，书写事件 <br>
+				3.事件驱动程序，就是事件源的value值和palceholder值的修改 <br>
+
+	京东：<input type="text" value="我是京东" id="jdInput">  <br><br>
+	<div class="tbInput-con">淘宝：<label for="tbInput" class="tbInput-text show" id="tbInput-text" >我是淘宝</label><input type="text" id="tbInput" ></div><br>
+	placeholder: <input type="text" id="placeInput" placeholder="我是placeholder"> <br><br>
+	
+	<script>
+		window.onload = function(){
+			var jdInput = document.getElementById("jdInput");
+			// 绑定事件(获取焦点事件)
+			jdInput.onfocus = function(){
+				if(jdInput["value"] === "我是京东"){
+					jdInput["value"] = "";
+				}
+			}
+			 //(失去焦点事件)焦点：插入条光标
+			jdInput.onblur = function(){
+				if (jdInput["value"] ==="") {
+					jdInput["value"] = "我是京东";
+				}
+			}
+			var tbInput = document.getElementById("tbInput");
+			var tbInputText = document.getElementById("tbInput-text");
+			// 绑定事件(输入事件，文字的输入和删除都会触动这个事件)
+			tbInput.oninput = function (){
+				if (this.value ==="") {
+					tbInputText.className = "tbInput-text show";
+				}else{
+					tbInputText.className = "tbInput-text hide";
+				}
+			}
+
+			// var placeInput = document.getElementById("placeInput");
+			//  //绑定事件(输入事件，文字的输入和删除都会触动这个事件),placehold 不用写以下代码，内部已经实现了
+			// placeInput.oninput = function (){
+			// 	if (this.value ==="") {
+			// 		placeInput.placeholder = "我是placeholder";
+			// 	}else{
+			// 		placeInput.placeholder ="";
+			// 	}
+			// }
+		}
+	</script>
+</body>
+</html>

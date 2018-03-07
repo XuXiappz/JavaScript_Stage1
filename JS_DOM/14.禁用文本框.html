@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14.禁用文本框</title>
+
+</head>
+<body>
+	需求：有两个按钮禁用与解禁，是账号部分处于可编辑和不可编辑状态; <br>
+	步骤：1)实现UI界面布局 <br>
+		  2）事件三要素： <br>
+		  1.事件源：禁用和解禁两个按钮 <br>
+		  2.事件：禁用与解禁两个按钮的点击事件 <br>
+		  3.事件驱动程序：使得账号input可编辑与不可编辑 <br>
+
+	账号：<input type="text" id="uid" value="yjp"><button id="lockBtn">禁用</button><button id="unlockBtn">解禁</button> <br>
+	密码：<input type="passworld" id="pwd" value="1234567">
+
+	<script>
+		window.onload = function (){
+			var lockBtn = document.getElementById("lockBtn");
+			var unlockBtn = document.getElementById("unlockBtn");
+			var userInput = document.getElementById("uid");
+			lockBtn.onclick = function (){
+				userInput.disabled = "no";
+			}
+			unlockBtn.onclick = function(){
+				// userInput.disabled = false;
+				userInput.removeAttribute("disabled");
+			}
+		}
+	</script>
+</body>
+</html>

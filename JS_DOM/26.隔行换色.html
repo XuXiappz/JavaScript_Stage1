@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>26.隔行换色</title>
+	<style>
+		ul{
+			width: 1210px;
+			margin: 100px auto;
+		}
+		li{
+			height: 34px;
+			font: 400 20px/34px "simsun";
+		}
+		/*方法一利用css实现*/
+		/*ul li:nth-child(2n){
+			background-color: red;
+		}*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>北京股指  3063.31-22.18 (-0.72%)</li>
+		<li>上海股指  3063.31-22.18 (-0.72%)</li>
+		<li>广州股指  3063.31-22.18 (-0.72%)</li>
+		<li>深圳股指  3063.31-22.18 (-0.72%)</li>
+		<li>北京股指  3063.31-22.18 (-0.72%)</li>
+		<li>上海股指  3063.31-22.18 (-0.72%)</li>
+		<li>广州股指  3063.31-22.18 (-0.72%)</li>
+		<li>深圳股指  3063.31-22.18 (-0.72%)</li>
+	</ul>
+	<!-- 方法二 利用js实现 -->
+	<script>
+		var rows = document.getElementsByTagName("ul")[0].children;
+		for(var i =0;i<rows.length;i++){
+			if (i%2 != 0) {
+				rows[i].style.backgroundColor = "yellow"
+			}
+		}
+
+		var arr = document.getElementsByTagName("ul")[0].childNodes;
+		var newRows = [];
+		for(var i =0;i<arr.length;i++){
+			if (arr[i].nodeType == 1) {
+				newRows.push(arr[i]);
+			}
+		}
+		for(var i=0;i<newRows.length;i++){
+			if(i%2 == 0 ){
+				newRows[i].style.backgroundColor = "green";
+			}
+		}
+	</script>
+</body>
+</html>

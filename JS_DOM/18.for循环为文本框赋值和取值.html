@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18.for循环为文本框赋值和取值</title>
+</head>
+<body>
+	需求：创建6个input，赋值按钮为6个input赋值<br>
+	<input type="text"><br><br>
+	<input type="text"><br><br>
+	<input type="text"><br><br>
+	<input type="text"><br><br>
+	<input type="text"><br><br>
+	<input type="text"><br><br>
+	<button id="btnInit">赋值</button>
+	<button id="btnInit2">取值</button>
+	<script>
+		window.onload = function(){
+			var btnInit = document.getElementById("btnInit");
+			var btnInit2 = document.getElementById("btnInit2");
+			var inputArr = document.getElementsByTagName("input");
+
+			btnInit.onclick = function(){
+				for(var i=0;i<inputArr.length;i++){
+					inputArr[i].value = "第"+i+"个输入框";
+				}
+			}
+			
+			btnInit2.onclick = function(){
+				var resultArr = [];
+				for(var i = 0;i<inputArr.length;i++){
+					resultArr.push(inputArr[i].value);
+				}
+				console.log(resultArr.join(" "));
+			}
+		}
+	</script>
+</body>
+</html>

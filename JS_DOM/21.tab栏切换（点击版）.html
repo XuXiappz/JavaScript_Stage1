@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>21.tab栏切换(点击版)</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.swich-tab-box{
+			height: 400px;
+			width: 500px;
+			background-color: green;
+			margin: 0 auto;
+			border: 1px solid gray;
+		}
+		.swich-tab-bar{
+			height: 40px;
+			background-color: pink;	
+		}
+		.swich-tab-con{
+			height: 360px;
+			background-color: yellow;
+			overflow: hidden;
+		}
+		.swich-tab-bar ul li{
+			list-style: none;
+			float: left;
+		}
+		.swich-tab-bar ul li a{
+			display: inline-block;
+			text-decoration: none;
+			font: 700 18px/40px "micorsoft yahe";
+			height: 40px;
+			background-color: pink;
+			color: #000;
+			padding: 0px 32px;
+		}
+		.swich-tab-bar ul li a:hover{
+			background-color: yellow;
+		}
+		.swich-tab-con-block{
+			display: inline-block;
+			width: 500px;
+			height: 360px;
+			font: 700 100px/360px 微软雅黑;
+			color: #000;
+			text-align: center;
+			background-color: yellow;
+		}
+		.swich-tab-con-block:first-child{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	1.需求：“鞋子”,"袜子"，“帽子” ，“裤子”，“裙子”是导航栏，点击tab内容切换为tab点击的结果; <br>
+	步骤： <br>
+	1.实现UI结构和样式 <br>
+	2.事件三要素： <br>
+	1）事件源：tab的中每一栏 <br>
+	2）事件：事件源的点击事件 <br>
+	3）事件驱动程序：内容也切换为tab的对应商品 <br>
+
+	<div class="swich-tab-box">
+		<div class="swich-tab-bar">
+			<ul>
+				<li><a href="#tab-con-block1">鞋子</a></li>
+				<li><a href="#tab-con-block2">袜子</a></li>
+				<li><a href="#tab-con-block3">帽子</a></li>
+				<li><a href="#tab-con-block4">裤子</a></li>
+				<li><a href="#tab-con-block5">裙子</a></li>
+			</ul>
+		</div>
+		<div class="swich-tab-con">
+			<div class="swich-tab-con-block" id="tab-con-block1">鞋子</div>
+			<div class="swich-tab-con-block" id="tab-con-block2">袜子</div>
+			<div class="swich-tab-con-block" id="tab-con-block3">帽子</div>
+			<div class="swich-tab-con-block" id="tab-con-block4">裤子</div>
+			<div class="swich-tab-con-block" id="tab-con-block5">裙子</div>
+		</div>
+	</div>
+	<script>
+		swichBtns = document.getElementsByTagName("a");
+		for(var i = 0;i<swichBtns.length;i++){
+			swichBtns[i].onclick = function (){
+				for(var j =0;j<swichBtns.length;j++){
+					swichBtns[j].style.backgroundColor = "pink";
+				}
+				this.style.backgroundColor = "yellow";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13.隐藏显示二维码</title>
+	<style>
+		.nodeQRC{
+			width: 50px;
+			height: 50px;
+			background: url('image/bgs.png') no-repeat -159px -52px ;
+			position:fixed;
+			right: 10px;
+			top: 40%;
+		}
+		.switch-QRCode-btn{
+			display: block;
+			height: 50px;
+			width: 50px;
+		}
+		.QRCode-con{
+			width: 149px;
+			height: 152px;
+			position: absolute;
+			left: -149px;
+			top:0;
+		}
+		.hide{
+			display: none;
+		}
+		.show{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	需求：鼠标经过是显示二维码，鼠标移除时隐藏二维码<br>
+	1.步骤：<br>
+	1)先实现UI布局<br>
+	2)事件三要素：<br>
+	1.事件源：获取显示二维码的div;<br>
+	2.事件：事件源鼠标移入和移出事件<br>
+	3.事件驱动程序：盛装二维码容器的显示和隐藏<br>
+	<div class="nodeQRC">
+		<a href="#" class="switch-QRCode-btn" id="switch-QRCode-btn"></a>
+		<div class="QRCode-con hide" id="QRCode-con">
+			<img src="image/QRCode.png" alt="二维码" >
+		</div>
+	</div>
+	<script>
+		window.onload = function(){
+			var switchBtn = document.getElementById("switch-QRCode-btn");
+			var QRCNode = document.getElementById("QRCode-con");
+			switchBtn.onmouseover = function(){
+				QRCNode["className"] = "QRCode-con show";
+			}
+			switchBtn.onmouseout = function(){
+				QRCNode["className"] = "QRCode-con hide";
+			}
+		}
+	</script>
+</body>
+</html>

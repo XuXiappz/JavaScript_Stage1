@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16.用户注册高亮显示</title>
+	<style>
+		.right{
+			border: 2px green solid;
+		}
+		.wrong{
+			border: 2px red solid;
+		}
+	</style>
+</head>
+<body>
+	需求：失去焦点的时候判断input按钮中的值，如果账号或密码在6-12个字符之间通过，否则报错<br>
+	步骤：1.实现UI布局<br>
+		  2.事件三要素：<br>
+		  1）事件源：账号和密码的input控件<br>
+		  2）事件：账号和密码的input控件的焦点失去事件<br>
+		  3）事件驱动程序：就是判断其input中值的是否有效，改变其控件的边框属性<br>
+
+		<label for="uidInput">账号：</label><input type="text" id="uidInput"> <br><br>
+		<label for="pwdInput">密码：</label><input type="password" id="pwdInput"><br><br>
+		<script>
+			window.onload = function (){
+				var uidInput = document.getElementById("uidInput");
+				var pwdInput = document.getElementById("pwdInput");
+				function isvaild(){
+					if (this.value.length<6 || this.value.length>12) {
+						this.className = "wrong";
+					}else{
+						this.className = "right";
+					}
+				}
+				uidInput.onblur = isvaild;
+				pwdInput.onblur = isvaild;
+			}
+		</script>
+
+		<!-- 另一种写法 -->
+<!--
+		function fn(aaa){
+			账号：<input type="text" onblur="fn(this)"/><br><br>
+    		密码：<input type="password" onblur="fn(this)"/>
+            //html中的input标签行内调用function的时候,是先通过window调用的function，所以打印this等于打印window
+//            console.log(this)
+            //只有传递的this才指的是标签本身。
+//            console.log(aaa)
+//            console.log(this.value)
+            if(aaa.value.length < 6 || aaa.value.length>12){
+                aaa.className = "wrong";
+            }else{
+                aaa.className = "right";
+            }
+        }	
+  -->	
+
+</body>
+</html>

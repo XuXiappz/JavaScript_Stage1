@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22.tab栏切换（鼠标移入移除版本）</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.box{
+			width: 500px;
+			height: 400px;
+			background-color: orange;
+			border: 1px solid gray;
+		}
+
+		.box-bar{
+			height: 40px;
+			background-color: pink;
+		}
+		li{
+			display: inline-block;
+			list-style: none;
+			float: left;
+			font: 700 18px/40px "simsun";
+			color: #000;
+			width: 100px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.box-con{
+			height: 360px;
+			background-color: yellow;
+		}
+		span{
+			display: none;
+			width: 500px;
+			height: 360px;
+			background-color: orange;
+			text-align: center;
+			font: 700 100px/360px "simsun";
+		}
+		.show{
+			display: inline-block;
+		}
+		.hiden{
+			display: none;
+		}
+		.curent {
+			background-color: orange;
+		}
+		.other {
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box-bar">
+			<ul>
+				<li class="curent">鞋子</li>
+				<li>袜子</li>
+				<li>帽子</li>
+				<li>裤子</li>
+				<li>裙子</li>
+			</ul>
+		</div>
+		<div class="box-con">
+			<span class="show">鞋子</span>
+			<span>袜子</span>
+			<span>帽子</span>
+			<span>裤子</span>
+			<span>裙子</span>
+		</div>
+	</div>
+	<script>
+		window.onload = function (){
+			tapBtns = document.getElementsByTagName("li");
+			boxCons = document.getElementsByTagName("span");
+			for(var i = 0; i< tapBtns.length; i++){
+				tapBtns[i].onmouseover = function(){
+					for(var j=0;j<tapBtns.length;j++){
+						tapBtns[j].className = "other";
+					}
+					this.className = "curent";//这里有个优化，可以将索引值，通过 liArr[i].index = i;赋值到上面去
+					for (var k = 0;k<boxCons.length;k++) {
+						if (tapBtns[k].className === "curent"){
+							boxCons[k].className = "show";
+						}
+						else{
+							boxCons[k].className = "hiden";
+						}
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

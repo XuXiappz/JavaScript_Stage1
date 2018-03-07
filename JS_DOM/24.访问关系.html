@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>24.访问关系</title>
+	<style>
+		ul li{
+			list-style: none;
+			background-color: green;
+			width: 100px;
+			height: 100px;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="box1" ></li>
+		<li class="box2" ></li>
+		<li class="box3" id="box3" ></li>
+		<li class="box4" ></li>
+		<li class="box5" ></li>
+	</ul>
+	<script>
+		var box3 = document.getElementById("box3");
+		//获取父节点
+		box3.parentNode.style.backgroundColor = "deepskyblue";
+		//获取单个子元素，第一个，最后一个
+		var first = box3.parentNode.firstElementChild || box3.parentNode.firstChild;
+		first.style.backgroundColor = "orange";
+		var last = box3.parentNode.lastElementChild || box3.parentNode.lastChild;
+		last.style.backgroundColor = "blue";
+		//获取所有子元素
+		var childArr = box3.parentNode.children;
+		for(var i=0;i<childArr.length;i++){
+			childArr[i].style.backgroundColor = "yellow";
+		}
+		var childArr2 = box3.parentNode.childNodes;
+		console.log(childArr2);
+		for(var i=0;i<childArr2.length;i++){
+			if (childArr2[i].nodeType === 1 ){ //nodeType ===1 是什么过滤条件呢？
+				childArr2[i].style.backgroundColor = "pink";
+			}
+		}
+		//获取兄弟结点，上个，下一个
+		//previousElementSibling和nextElementSibling在IE678中不支持。IE678不能获取文本节点。
+		var pre = box3.previousElementSibling || box3.previousSibling;
+		var next = box3.nextElementSibling || box3.nextSibling;
+		pre.style.backgroundColor = "yellow";
+		next.style.backgroundColor = "orange";
+
+		//随意获取兄弟结点
+		var index = 0;
+		var node = box3.parentNode.children[index];
+		node.style.backgroundColor = "green";
+
+		//获取所有的兄弟结点
+	
+		function siblings(elm){
+			var a =[];
+			var p = elm.parentNode.children;
+			for(var i =0;i<p.length;i++){
+				if (p[i]!==elm) {
+					a.push(p[i]);
+				}
+			}
+			return a;
+		}
+	</script>
+</body>
+</html>

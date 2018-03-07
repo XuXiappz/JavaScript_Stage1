@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19.全选与反选</title>
+	<style>
+		.emnu-con{
+			width: 300px;
+			height: 600px;
+			margin: 0 auto;
+		}
+		table{
+			border-collapse: collapse;
+			width: 300px;
+			border: 1px gray solid;
+		}
+		th,td{
+			border: 1px gray solid;
+			height: 30px;
+			background-color: #eee;
+		}
+		th{
+			background-color: deepskyblue;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	需求：点击上面的的input，下面全选或者反选。
+	步骤:
+	1.实现界面的布局
+	2.事件三要素：
+	1）事件源：
+	2）事件：
+	3）事件驱动程序：
+	<div class="emnu-con">
+		<table>
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="totalCheck"></th>
+					<th>菜名</th>
+					<th>饭店</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" id="check1"></td>
+					<td>地三鲜</td>
+					<td>田老师</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="check2"></td>
+					<td>西红柿鸡蛋</td>
+					<td>吉野家</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="check3"></td>
+					<td>麻辣粉丝</td>
+					<td>凉皮先生</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="check4"></td>
+					<td>黑麦面包</td>
+					<td>德芙</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		window.onload = function(){
+			var totalCheck = document.getElementById("totalCheck");
+			var checkList = [];
+			for(var i = 1;i<=4;i++){
+				var tmp = document.getElementById("check"+i);
+				checkList.push(tmp);
+			}
+			totalCheck.onclick = function(){
+				for(var i = 0;i<checkList.length;i++){
+					//优化版（被点击的input按钮的checked属性值，应该直接作为下面的所有的input按钮的checked属性值）
+					checkList[i].checked = this.checked;
+				}
+			}
+			for(var i = 0;i<checkList.length;i++){
+				checkList[i].onclick = function(){
+				//开闭原则
+				var flag = true;
+				for (var j = 0;j<checkList.length;j++) {
+					if (checkList[j].checked == false) {
+						flag = false;
+						break;
+					}
+					
+				}
+				totalCheck.checked = flag;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

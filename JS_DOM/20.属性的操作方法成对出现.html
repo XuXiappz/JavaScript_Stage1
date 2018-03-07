@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20.属性的操作方法成对出现</title>
+	<style>
+		.box{
+			height: 100px;
+			width: 100px;
+			background-color: deepskyblue;
+		}
+	</style>
+</head>
+<body>
+	1.属性操作方法一套:setAttribute，getAttribute; <br>
+	2.属性操作方法二套:.,.;<br>
+	3.属性操作方法两种方法不能交换使用，赋值或获取值必须使用同一套方法<br>
+	<div class="box" id="testBox">爱我中华</div>
+	<script>
+		var box = document.getElementById("testBox");
+		console.log("正确操作");
+		box.aaa = "aaaCon";
+		console.log(box.aaa);
+		box.setAttribute("bbb","bbbCon");
+		console.log(box.getAttribute("bbb"));
+		console.log("错误操作");
+		console.log(box.getAttribute("aaa"));//打印未访问的属性null
+		console.log(box.bbb);//打印未访问的属性未undefined
+	</script>
+</body>
+</html>
