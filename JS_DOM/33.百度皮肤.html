@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>33.百度皮肤</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			width: 1100px;
+			height: 125px;
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			top: 0px;
+			bottom: 0px;
+			margin: auto auto;
+		}
+		ul li{
+			display:  inline-block;
+			float: left;
+			list-style:  none;
+			cursor: pointer;
+			width: 200px;
+			height: 125px;
+			margin:  0px 10px;
+			background-color: green;
+		}
+		body{
+			background: url('image/baidu1.jpg');
+		}
+		.selectBar{
+			width: 1600px;
+			height: 200px;
+			/*background: rgba(255, 255, 255, 0.3);*/
+			background-color: rgba(255, 255, 255, 0.3);
+			margin: 0 auto;
+			position: relative;
+		}
+		img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<!-- 1.需求：点击图片，body的背景图修改。  -->
+	<!-- 2.步骤：  -->
+	<!-- 1）实现布局;  -->
+	<div class="selectBar">
+		<ul>
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+		</ul>
+	</div>
+	<script>
+		var imgs = document.getElementsByTagName("img");
+		var body = document.getElementsByTagName("body")[0];
+		for(var i =0;i<imgs.length;i++){
+			imgs[i].src = "image/baidu"+(i+1)+".jpg";
+			imgs[i].setAttribute("index",i);
+			imgs[i].onclick = function (){
+				body.style.background = "url('image/baidu"+(parseInt(this.getAttribute("index"))+1)+".jpg')";
+				console.log("url('image/baidu"+(parseInt(this.getAttribute("index"))+1)+".jpg')");
+				//  body.style.backgroundImage = "url("+this.src+")";
+			}
+		}
+
+	</script>
+</body>
+</html>

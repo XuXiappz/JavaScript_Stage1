@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>37.元素的操作</title>
+</head>
+<body>
+	<ul>
+		<li>我是参照标签</li>
+	</ul>
+	<script>
+		var ul = document.getElementsByTagName("ul")[0];
+		var li = document.getElementsByTagName("li")[0];
+	    //document.write();不常用，因为容易覆盖原来的页面。
+	    //innerHTML;用的比较多。绑定属性和内容比较方便。(节点套节点)
+	    //document.createElement;也是比较多的，指定数量的时候一般用它。
+
+		// 创建 // 添加
+		var li1 = document.createElement("li");
+		li1.innerHTML ="我是li1,createElement创建的，append方法添加的";
+		ul.appendChild(li1);
+
+		var li2 = document.createElement("li");
+		li2.innerHTML ="我是li2,createElement创建的，insertBefore方法添加的";
+		ul.insertBefore(li2,li1);
+
+		// 删除
+		var li3 = document.createElement("li");
+		li3.innerHTML ="我是li3,createElement创建的，insertBefore方法添加的一会儿会被删除/替换/clone";
+		ul.insertBefore(li3,li1);
+		ul.removeChild(li3);
+
+		// 替换
+		//父节点.replaceChild(newNode,oldNode);
+		ul.replaceChild(li3,li2);
+	
+	
+		// 克隆
+		for(var i=0;i<3;i++){
+			var tmp = li3.cloneNode(true);
+			ul.appendChild(tmp);
+		}
+
+	</script>
+</body>
+</html>

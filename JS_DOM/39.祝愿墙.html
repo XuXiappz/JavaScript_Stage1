@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>39.祝愿墙</title>
+	<style>
+	/*格式清楚代码*/
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+	/*body部分 start*/
+		body{
+			background: url('image/wall_bg1.gif');
+		}
+	/*body部分 end*/
+
+	/*wish-wall部分 start*/
+		.wish-wall{
+			width: 960px;
+			height: 620px;
+			margin: 0 auto;
+			background: url('image/wall_bg2.jpg') no-repeat;
+			position: relative;
+		}
+	/*wish-wall部分 end*/
+
+	/*wish-tips部分 start*/
+		.wish-wall-tips{
+			width: 227px;
+			position: absolute;
+			top: 200px;
+			left: 150px;
+			cursor: move;
+			/*move 是四向箭头*/
+		}
+		.tips-top{
+			height: 23px;
+			background: url('image/wall_tipTop.gif') no-repeat;
+			padding-top: 45px;
+			font: 300  12px/20px "micorsoft yahe";
+		}
+		.tips-top-title,.tips-top-close{
+			height: 20px;	
+			float: left;
+		}
+		.tips-top-title{
+			width: 200px;
+			padding-left: 5px;
+		}
+		.tips-top-close{
+			width: 10px;
+		}
+		.tips-con{
+			background: url('image/wall_tipCon.gif') repeat-y;	
+			font-size: 14px;
+			padding: 0px 3px;
+			text-indent: 2em;
+		}
+		.tips-bot{
+			height: 53px;
+			padding-top: 20px;
+			background: url('image/wall_tipBot.gif') no-repeat;
+
+		}
+		.tips-bot-pic{
+			width: 32px;
+			height: 32px;
+			background: url('image/wall_tipPic.gif') no-repeat;
+			float: left;
+		}
+		.tips-bot-author{
+			height: 32px;
+			text-indent: 2em;
+			font: 300 13px/32px "micorsoft yahe";
+			float: left;
+			color: purple;
+		}
+	/*wish-tips部分 end*/
+	</style>
+</head>
+<body>
+	<div class="wish-wall" id="wishWall">
+		<div class="wish-wall-tips" id="wishWallTip1">
+			<div class="tips-top" title="点击关闭">
+				<div class="tips-top-title">第[49568]条 2016-07-7 22:51:52</div>
+				<div class="tips-top-close">X</div>
+			</div>
+			<div class="tips-con"> 普天同庆，天下大同！普天同庆，天下大同！普天同庆，天下大同！普天同庆，天下大同！</div>
+			<div class="tips-bot">
+				<div class="tips-bot-pic"></div>
+				<div class="tips-bot-author">不愿意透露姓名的吕先生</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		 //需求：克隆盒子，然后随机位置，点击纸条的时候压住其他的纸条。
+		 window.onload = function (){
+		 	var wishWallTip1 =  document.getElementById("wishWallTip1");
+		 	var wishWall = document.getElementById("wishWall");
+		 	var totalNum = 10;
+		 	var wishWallTips = [];
+		 	wishWallTips.push(wishWallTip1);
+		 	wishWallTip1.onclick = fn;
+		 	for(var i=0;i<totalNum;i++){
+		 		var tmp = wishWallTip1.cloneNode(true);
+		 		var topPos = parseInt(Math.random()*400);
+		 		var leftPos = parseInt(Math.random()*700);
+		 		tmp.style.top = topPos+"px";
+		 		tmp.style.left = leftPos+"px";
+		 		wishWallTips.push(tmp);
+		 		wishWall.appendChild(tmp);
+		 		tmp.onclick = fn;
+		 	}
+		 	var index = 1;
+		 	function fn(){
+		 		this.style.zIndex = index;
+		 		index++;
+		 	}
+		 }
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>38.创建列表高亮显示美女</title>
+</head>
+<body>
+	1.需求：点击列表，添加四大美女，然后鼠标放到谁上面，谁高亮显示。 <br>
+	<button>创建列表</button>
+	<ul></ul>
+	<script>
+		var ul = document.getElementsByTagName("ul")[0];
+		var textArr = ["贵妃醉酒","貂蝉拜月","昭君出塞","西施浣纱"];
+		var btn = document.getElementsByTagName("button")[0];
+		btn.onclick = function (){
+			for(var i=0;i<textArr.length;i++){
+					var tmp = document.createElement("li");
+					tmp.innerHTML = textArr[i];
+					ul.appendChild(tmp);
+					tmp.onmouseover = function (){
+						this.style.backgroundColor = "red";
+					}
+					tmp.onmouseout = function (){
+						this.style.backgroundColor = "";
+					}
+				}
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>34.隐藏盒子</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		.box1{
+			background-color: yellow;
+		}
+		.box2{
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">盒子一</div>
+	<div class="box2">盒子二</div>
+	<script>
+		var box1 = document.getElementsByClassName("box1")[0];
+		box1.onclick = function(){
+			// this.style.display = "none"; //不占据位置;
+			// this.style.opacity = "0";//只是看不见，但是还占据着位置
+			// 这种方法呢，使用绝对定位，脱标之后，不占据位置，但是元素还是存在的
+			this.style.position = "absolute";
+			this.style.top = "-100px";
+		}
+	</script>
+</body>
+</html>

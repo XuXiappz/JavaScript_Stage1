@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>28.菜单练习（利用封装的方法）</title>
+	<style type="text/css">
+		ul li{
+			list-style: none;
+			display:  inline-block;
+			float: left;
+			width: 80px;
+			height: 30px;
+			text-align: center;
+			font: 300 16px/30px "simsun";
+			margin:0px 5px ;
+			background-color: #f5f5dc;
+		}
+		a {
+			text-decoration: none;
+		}
+		.current{
+			background-color:#deb887;
+		}
+	</style>
+	<script src="tools.js"></script>
+</head>
+<body>
+	<ul>
+		<li class="current"> <a href="#">首页</a></li>
+		<li> <a href="#">播客</a></li>
+		<li> <a href="javascript:void(0)">博客</a></li>
+		<li> <a href="#">相册</a></li>
+		<li> <a href="#">关于</a></li>
+		<li> <a href="#">帮助</a></li>
+	</ul>
+	<script>
+		window.onload = function(){
+			var btns = document.getElementsByTagName("li");
+			console.log(btns);
+			for(var i =0;i<btns.length;i++){
+				btns[i].setAttribute("index",i);
+				btns[i].onclick = function(){
+				this.className = "current";
+				var otherBtns = getAllEleSiblings(this);
+				for(var i =0;i<otherBtns.length;i++){
+						otherBtns[i].className = "";
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
+

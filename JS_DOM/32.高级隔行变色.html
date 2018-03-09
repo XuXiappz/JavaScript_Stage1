@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高级隔行变色</title>
+	<style>
+		table{
+			width: 500px;
+			height: 300px;
+			text-align: center;
+			margin: 0 auto;
+		 	border-collapse: collapse;
+ 			border: 1px solid #c0c0c0;
+		}
+		thead tr th{
+			color: white;
+			background-color: #09c;
+			height: 43px;
+			font: 700 18px/43px "simsun";
+			border-left: 1px solid #a3a3a3;
+		}
+
+		tbody tr td{
+			height: 40px;
+			font: 300 14px/40px "simsun";
+			color: #404060;
+			border-left: 1px solid #a3a3a3;
+		}
+		tbody tr:nth-of-type(2n){
+			background-color: #a3a3a3;
+			cursor: pointer;
+		}
+		tbody tr:nth-of-type(2n+1){
+			background-color: #cccccc;
+			cursor: pointer;
+		}
+		/*background-color: red!important;*/
+		table tbody tr.current {
+			background-color: #fff;
+		}
+	</style>
+	<script src="tools.js"></script>
+</head>
+<body>
+	1.需求：让tr各行变色，鼠标放入tr中，高亮显示
+	<table>
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>课程</th>
+				<th>成绩</th>
+			</tr>	
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>吕小布</td>
+				<td>语文</td>
+				<td>100</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		var rows = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+		for(var i=0;i<rows.length;i++){
+			rows[i].onmouseover = function (){
+				this.className = "current";
+				var otherRows = getAllEleSiblings(this);
+				for(var i=0; i<otherRows.length;i++){
+					otherRows[i].className ="";
+				}
+			}
+			rows[i].onmouseout = function (){
+				this.className = "";
+			}
+		}
+
+	</script>
+
+	<!-- 其他的方法 -->
+<!-- 	 <script>
+        //需求：让tr各行变色，鼠标放入tr中，高亮显示。
+
+        //1.隔行变色。
+        var tbody = document.getElementById("target");
+        var trArr = tbody.children;
+        //循环判断并各行赋值属性（背景色）
+        for(var i=0;i<trArr.length;i++){
+            if(i%2!==0){
+                trArr[i].style.backgroundColor = "#a3a3a3";
+            }else{
+                trArr[i].style.backgroundColor = "#ccc";
+            }
+
+            //鼠标进入高亮显示
+            //难点：鼠标移开的时候要回复原始颜色。
+            //计数器（进入tr之后，立刻记录颜色，然后移开的时候使用记录好的颜色）
+            var color = "";
+            trArr[i].onmouseover = function () {
+                //赋值颜色之前，先记录颜色
+                color = this.style.backgroundColor;
+                this.style.backgroundColor = "#fff";
+            }
+            trArr[i].onmouseout = function () {
+                this.style.backgroundColor = color;
+            }
+        }
+
+
+    </script> -->
+
+</body>
+</html>

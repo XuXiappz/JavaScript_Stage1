@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>29.style属性的演示</title>
+</head>
+<body>
+	<div class="box" style="width: 100px;height: 100px;background-color: red;color: white">我爱你中国</div>
+	<script>
+		var box = document.getElementsByTagName("div")[0];
+		//1.样式少的时候使用
+		//2.命名规则：驼峰命名，和css不一样，css是-练字符
+		box.style.backgroundColor = "yellow";
+		// 3.style是对象
+		// 4.值是字符串，没有设置值是“”；
+		console.log(typeof box.style);
+		console.log(typeof box.className);
+		console.log(box.style.backgroundColor);
+		console.log(box.style);
+		// 5.设置了类样式不能获取（只和行内式交互，和内嵌和外链无关）
+		// 6.box.style.cssText = "字符串形式的样式";
+		console.log(box.style.cssText);
+		box.style.cssText = "width: 200px;height: 200px;background-color: green;color: red"
+	</script>
+</body>
+</html>

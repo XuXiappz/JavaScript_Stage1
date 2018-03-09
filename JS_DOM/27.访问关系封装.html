@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>27.访问关系封装</title>
+	<style type="text/css">
+		ul li{
+			list-style:  none;
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			margin: 10px 0px;
+		}
+	</style>
+	<script type="text/javascript" src="tools.js"></script>
+</head>
+<body>
+	<ul>
+		<li ></li>
+		<li ></li>
+		<li ></li>
+		<li id="box4"></li>
+		<li ></li>
+		<li ></li>
+	</ul>
+	<script type="text/javascript">
+		 //获取box改为red
+		 var box = getEle("box4");
+		 box.style.backgroundColor = "red";
+
+		 // 获取第一个为橙色和最后一个子节点橙色
+		getFirstNode(box.parentNode).style.backgroundColor ="orange";
+		getLastNode(box.parentNode).style.backgroundColor ="orange";
+
+		 // 获取上一个和下一个兄弟节点
+		 getLastSiblingNode(box).style.backgroundColor = "green";
+		 getNextSiblingNode(box).style.backgroundColor = "green";
+
+		 getEleOfIndex(box,2).style.backgroundColor = "pink";
+
+		 // 获取所有的兄弟节点（返回值是数组，所以用for循环操作）
+		 var tmpArr = getAllEleSiblings(box);
+		 for(var i =0;i<tmpArr.length;i++){
+		 	tmpArr[i].style.backgroundColor = "pink";
+		 }
+	</script>
+</body>
+</html>

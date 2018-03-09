@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>40.选择水果</title>
+	<style>	
+		#selMenuFurit,#selBuyFurit{
+			width: 100px;
+			height: 150px;
+			background-color: yellowgreen;
+		}
+	</style>
+</head>
+<body>
+	<select name="" id="selMenuFurit" size="10">
+		<option value="">香蕉</option>
+		<option value="">苹果</option>
+		<option value="">鸭梨</option>
+		<option value="">葡萄</option>
+	</select>
+	<button>>>></button>
+	<button><<<</button>
+	<button>></button>
+	<button><</button>
+	<select name="" id="selBuyFurit" size="10"></select>
+	<script>
+	      //需求：点击>>>左边的所有选项全部进入右边，
+                 //点击<<<右边的所有选项全部进入左边。
+            //思路：获取所有的子元素，然后直接添加到另一侧。
+		window.onload = function (){
+			var allToLeftBtn =  document.getElementsByTagName("button")[0];
+			var allToRightBtn = document.getElementsByTagName("button")[1];
+			var selA = document.getElementById("selMenuFurit");
+			var selB = document.getElementById("selBuyFurit");
+			allToLeftBtn.onclick = function (){
+				selAToSelB(selA,selB);
+			}
+			allToRightBtn.onclick = function(){
+				selAToSelB(selB,selA);
+			}
+			function selAToSelB(selA,selB){
+				var aArr = selA.children;
+				var len = aArr.length;
+				if(len <= 0){
+					return;
+				}
+				for(var i=0;i<len;i++){
+					selB.appendChild(aArr[0]);
+				}
+			}
+		}
+	</script>
+<!-- 绑定事件的另一种写法 -->
+<!-- 
+ //绑定事件
+            btnArr[0].onclick = function () {
+                //获取左侧的select标签的所有子元素
+                var arr = sel1.children;
+                //遍历添加到右侧(随着左侧标签内元素的减少，数组的长度也会减少，那么)
+                for(var i=arr.length-1;i>=0;i--){
+                    //push()是操作数组的。要往一个标签中添加元素，要用appendChild();
+                    //而往另外一个标签中添加元素原来的数组长度容易变化，为了防止跳出循环，我们使用反向遍历数组
+                    sel2.appendChild(arr[arr.length-1-i]);
+                }
+            }
+
+ -->
+
+</body>
+</html>

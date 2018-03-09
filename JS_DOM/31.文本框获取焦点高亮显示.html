@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>31.文本框获取焦点高亮显示</title>
+	<style>
+		ul li{
+			list-style: none;
+		}
+		input{
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	1.需求：点击设置按钮，让所有的input标签获取焦点后高亮显示
+	<ul>
+		<li><input type="text"></li>
+		<li><input type="text"></li>
+		<li><input type="text"></li>
+		<li><input type="text"></li>
+		<li><input type="text"></li>
+	</ul>
+	<button>Setting</button>
+	<script>
+		var btn = document.getElementsByTagName("button")[0];
+		var liArr = document.getElementsByTagName("input");
+		btn.onclick = function(){
+			for(var i=0;i<liArr.length;i++){
+				liArr[i].onfocus = function (){
+					this.style.border = "1px solid orange";
+					this.style.backgroundColor = "pink";
+				}
+				liArr[i].onblur = function (){
+					this.style.border ="";
+					this.style.backgroundColor = "";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

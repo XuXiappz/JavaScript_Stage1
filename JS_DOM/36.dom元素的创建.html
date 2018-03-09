@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>36.dom元素的创建</title>
+</head>
+<body>
+	<button>创建</button>
+	<ul>
+		aaaa
+	</ul>
+	<script>
+		var btn = document.getElementsByTagName("button")[0];
+		var ul = document.getElementsByTagName("ul")[0];
+		//第一种创建方式：document.write();
+		document.write("<li>我是document.write创建的</li>");
+		//第二种：直接利用元素的innerHTNL方法。（innerText方法不识别标签）
+		ul.innerHTML += "<li id='liInner'>我是innerHTML创建</li>";
+		//第三种：利用dom的api创建元素
+		var newLi = document.createElement("li");
+		newLi.innerHTML = "我是creaeElement创建的";
+		// ul.appendChild(newLi); //在父元素的所有元素之后添加元素
+		var liInner = document.getElementById("liInner");
+		ul.insertBefore(newLi,liInner);//将元素插入到指定子元素之前
+		var n = 0;
+		btn.onclick = function (){
+			var tmp = document.createElement("li");
+			tmp.innerHTML = "点击方法创建的"+(++n);
+			ul.appendChild(tmp);
+		}
+	</script>
+</body>
+</html>
