@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>45.模拟百度搜索</title>
+	<!-- 自己琢磨的第一版css strat -->
+	<!-- <style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.search{
+			width: 500px;
+			margin: 0 auto;
+		}
+		input[type="text"]{
+			width: 405px;
+			height: 20px;
+		}
+		ul{
+			padding-left: 10px;
+			height: 130px;
+		}
+		ul li{
+			list-style: none;
+		}
+		.tipBox{
+			display: block;
+			width: 407px;
+			border: 1px solid red;
+			background-color: yellow;
+		}
+		.hidden{
+			display: none;
+		}
+	</style> -->
+	<!-- 自己琢磨的第一版css end -->
+
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.searchBox {
+			width: 500px;
+			margin: 150px auto 0px auto;
+		}
+		input[type="text"]{
+			width: 405px;
+			height: 15px;
+			vertical-align: middle;
+		}
+		button{
+			width: 68px;
+			height:20px;
+			margin-left: 5px;
+			vertical-align: middle;
+		}
+		ul{
+			width: 398px;
+			padding: 5px;
+			border: 1px solid red;
+		}
+		ul li{
+			list-style: none;
+		}
+		ul li:hover{
+			background-color: red;
+		}
+	</style>
+
+</head>
+<!-- 自己琢磨的第一版 start -->
+<!-- <body>
+	 1.需求：输入内(输入事件，键盘弹起事件)，模拟服务器获取内容，创建ul，并在其中显示。 <br>
+	 2.步骤： <br>
+	 1）实现UI布局： <br>
+	 2）事件三要素： <br>
+	<div class="search">
+		<input type="text"> <button>搜索</button>
+		<div class="tipBox hidden">
+			<ul>
+				<li>aa</li>
+				<li>aab</li>
+				<li>aac</li>
+				<li>aad</li>
+				<li>aaad</li>
+				<li>aade</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var tipBox = document.getElementsByClassName("tipBox")[0];
+		var liArr = tipBox.getElementsByTagName("li");
+		var serarBox = document.getElementsByTagName("input")[0];
+		serarBox.onfocus = function(){
+			tipBox.className = "tipBox";
+		}
+		serarBox.onblur = function(){
+			tipBox.className += " hidden";//这里有个空格需要格外注意
+			console.log(tipBox.className);
+		}
+		for(var i=0;i<liArr.length;i++){
+			liArr[i].onmouseover = function(){
+				this.style.backgroundColor = "red";
+			}
+			liArr[i].onmouseout = function(){
+				this.style.backgroundColor = "";
+			}
+		}
+	</script>
+</body> -->
+<!-- 自己琢磨的第一版 end -->
+
+<body>
+	<div class="searchBox">
+		<input type="text"><button>搜索</button>
+	</div>
+	<script>
+		var dataArray = ["a","ab","abc","abcd","aa","aaa"];
+		var searchBox = document.getElementsByClassName("searchBox")[0];
+		var input = document.getElementsByTagName("input")[0];
+		input.onkeyup = function (){
+			var resultArr = [];
+			var value = this.value;
+			console.log("value");
+			console.log(value);
+			for(var i =0;i<dataArray.length;i++){
+				// 只有返回值为0，那么字符串才是以参数为开头
+    			//如果查询不到，返回值为-1；
+				if(dataArray[i].indexOf(value) === 0 && value!==""){
+					resultArr.push(dataArray[i]);
+				}
+			}
+			var htmlStr = "";
+			for(var i=0;i<resultArr.length;i++){
+				tmp = "<li>"+resultArr[i]+"</li>";
+				htmlStr +=tmp;
+				htmlStr +=" " ;
+			}
+			if(searchBox.children[2]){
+				searchBox.removeChild(searchBox.children[2]);
+			}
+			console.log("htmlStr");
+			console.log(htmlStr);
+			if(htmlStr === ""){
+				return;
+			}else{
+				var ul = document.createElement("ul");
+				searchBox.appendChild(ul);
+				ul.innerHTML = htmlStr;
+			}
+
+		}
+	</script>
+</body>
+</html>

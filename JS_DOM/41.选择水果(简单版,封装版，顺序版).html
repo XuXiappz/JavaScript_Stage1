@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>41.选择水果(简单版+封装版+排序)</title>
+	<style>
+		select{
+			width: 100px;
+			height: 140px;
+			background-color: yellowgreen;
+		}
+	</style>
+</head>
+<body>
+	<select name="" id="menuFuritSel" size="10" multiple>
+		<option value="1">1榴莲</option>
+		<option value="2">2山竹</option>
+		<option value="3">3百香果</option>
+		<option value="4">4猕猴桃</option>
+		<option value="5">5香果</option>
+	</select>
+	<button>>></button>
+	<button><<</button>
+	<button>></button>
+	<button><</button>
+	<select name="" id="buyFuritSel" size="10" multiple></select>
+	<script>
+		window.onload = function(){
+			var menuFuritSel = document.getElementById("menuFuritSel");
+			var buyFuritSel = document.getElementById("buyFuritSel");
+			var btns = document.getElementsByTagName("button");
+			var orderArr = menuFuritSel.children;
+			btns[0].onclick = function (){
+				putAllSelAToSelB(menuFuritSel,buyFuritSel);
+			}
+			btns[1].onclick = function(){
+				putAllSelAToSelB(buyFuritSel,menuFuritSel);
+			}
+			btns[2].onclick = function(){
+				putOneSelAToSelB(menuFuritSel,buyFuritSel);
+			}
+			btns[3].onclick = function(){
+				putOneSelAToSelB(buyFuritSel,menuFuritSel);
+			}
+			function putAllSelAToSelB(selA,selB){
+				var ops = selA.children;
+				for(var i= ops.length;i>0;i--){
+					selB.appendChild(ops[i-1]);
+				}
+			}
+
+			function putOneSelAToSelB(selA,selB){
+				var ops = selA.children;
+				for(var i = ops.length;i>0;i--){
+					if(ops[i-1].selected === true){
+						ops[i-1].selected = false;
+						selB.appendChild(ops[i-1]);
+					}
+				}
+				var repOps =Array.from(selB.children).sort(function(a,b){
+					return a.value - b.value;
+				});
+				for(var i=0;i<selB.children.length;i++){
+					selB.removeChild(selB.children[i]);
+				}
+				for(var i=0;i<repOps.length;i++){
+					selB.appendChild(repOps[i]);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

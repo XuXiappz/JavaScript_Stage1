@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟京东关闭广告栏</title>
+	<style>
+		.nav{
+			background-color: gray;
+			height: 30px;
+		}
+		.ad{
+			background-color: blue;
+			height: 80px;
+			opacity: 1; 
+			/*为什么在style标签中设置opacity无效?*/
+		}
+		.ad-con{
+			height: 80px;
+			width: 1210px;
+			margin: 0 auto;
+			background-color: pink;
+			position: relative;
+		}
+		.ad-close{
+			width: 25px;
+			height: 25px;
+			background-color: black;
+			font: 700 14px/25px "simsun";
+			text-align:  center;
+			color: white;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		.sub-nav{
+			width: 1210px;
+			background: red;
+			height: 80px;
+			margin: 0 auto;
+		}
+		.hidden{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+	</div>
+	<div class="ad">
+		<div class="ad-con">
+			<div class="ad-close">X</div>
+		</div>
+	</div>
+	<div class="sub-nav"></div>
+	<script>
+		var closeBtn = document.getElementsByClassName("ad-close")[0];
+		var ad = document.getElementsByClassName("ad")[0];
+		ad.style.opacity = 1;
+		closeBtn.onclick = function (){
+			timer = setInterval(function (){
+				ad.style.opacity -= 0.1;
+				if(ad.style.opacity <0){
+					ad.className = "hidden";
+					clearInterval(timer);
+				}
+			},50);
+		}
+	</script>
+</body>
+</html>

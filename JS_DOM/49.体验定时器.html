@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>49.体验定时器</title>
+
+</head>
+<body>
+	<script>
+	    //用途：setInterval()循环定时器；周而复始的执行（循环执行）
+	    //用途：setTimeout() 炸弹定时器；用完以后立刻报废（只执行一次）
+
+	    // 匿名函数参数
+	    // var num = 0;
+	    // setInterval(function(){
+	    // 	console.log(num);
+	    // 	num++;
+	    // },1000);
+
+	    // 自定义方法
+	    // var num = 0;
+	    // var fn = function (){
+	    // 	num += 2;
+	    // 	console.log(num);
+	    // }
+	    // setInterval(fn,1000);
+
+	    // 带参数自定义方法
+	    setInterval("fn1(3)",1000);//带参数方法调用是通过字符串的方式进行的
+	    function fn1(a){
+	    	console.log(a);
+	    }
+	</script>	
+</body>
+</html>
