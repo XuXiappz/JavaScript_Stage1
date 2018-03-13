@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>65.事件的概述</title>
+</head>
+<body>
+	<button>赋诗</button>
+	<script>
+	// 方法一：利用ele.onclick = fn，这样方法容易被层叠掉（不推荐使用）
+		var btn = document.getElementsByTagName("button")[0];
+		btn.onclick = function (){
+			console.log("九尺龙泉万卷书，上天生我意如何.");
+		}
+		btn.onclick = function (){
+			console.log("不能报国平天下，枉为男儿大丈夫");
+		}
+
+	// 方法二，addEventListener:事件监听器，推荐方法，原理是事件监听器，原时间被执行的时候，后面绑定的事件照样被执行（不会被出现层叠，更适合团队开发，而且连ele.onclick的方法也不会受到影响）
+	//调用这是事件源，参数1事件名(不带on) ，参数2事件名(执行函数)    参数3事件名(捕获或者冒泡)
+	btn.addEventListener("click",fn1);
+	btn.addEventListener("click",fn2);
+	function fn1 (){
+		console.log("床前明月光");
+	}
+	function fn2 (){
+		console.log("疑是地上霜");
+	}
+	</script>
+</body>
+</html>

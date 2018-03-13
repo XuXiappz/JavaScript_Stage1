@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>62.字符串案例</title>
+</head>
+<body>
+	<script>
+		// 截取字符串“我爱你中国，我亲爱的母亲”，中的“中国，我亲爱的”
+		var str = "我爱你中国，我亲爱的母亲";
+		console.log(str.slice(str.indexOf("中"),str.indexOf("母")));
+		console.log("-----------分隔线----------------");
+
+		// "abcoefoxyozzopp"查找字符串中所有o出现的位置
+		// 方法一
+		var str1 = "abcoefoxyozzopp";
+		var oArr = [];
+		var pos = -1;
+		for(var i=0;i<str1.length;i++){
+			pos = str1.indexOf("o",pos+1);
+			if (pos!= -1){
+				oArr.push(pos);
+			}else{
+				break;
+			}
+		}
+		console.log(oArr);
+		console.log("-----------分隔线----------------");
+
+		// 方法二
+		var oArr1 = [];
+		for(var i=0;i<str1.length;i++){
+			if(str1.charAt(i) === "o"){
+				oArr1.push(i);
+			}
+		}
+		console.log(oArr1);
+		console.log("-----------分隔线----------------");
+
+		// 把字符串中所有的o替换为！
+		console.log(str1);
+		console.log(str1.replace(/o/gi,"!"));
+		console.log("-----------分隔线----------------");
+
+		// 判断一个字符串中出现次数最多的字符，统计这个次数
+		//思路：
+		// 1)定义一个json，然后判断这个json中是否有这个属性，如果有该属性，那么其值+1.否则创建一个该属性，并赋值为1；
+		//2) 然后枚举遍历该枚举，找出找出最大出现次数的key，然后再输出这个key和count
+		 var json = {};
+		 for(var i =0;i<str1.length;i++){
+		 	var key = str1.charAt(i);
+		 	if(json[key] === undefined){
+		 		json[key] = 1;
+		 	}else{
+		 		json[key] += 1;
+		 	}
+		 }
+		 console.log(json);
+		 var maxKey = "";
+		 var maxValue = 0;
+		 for(var k in json){
+		 	if (maxKey === "") {
+		 		maxKey = k;
+		 		maxValue = json[maxKey];
+		 	}else{
+		 		if(json[k]>maxValue){
+		 			maxKey = k;
+		 			maxValue = json[k];
+		 		}
+		 	}
+		 }
+		 console.log(maxKey+": "+maxValue);
+	</script>
+</body>
+</html>

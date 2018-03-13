@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>55.苹果发布会倒计时</title>
+	<style>
+		div{
+			width: 1200px;
+			height: 60px;
+			margin: 0 auto;
+			background-color: blue;
+			color: white;
+			font: 700 22px/60px "simsun";
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div>just testting</div>
+	<script>
+		var goalDate = new Date("2018/10/01 19:00:12");
+		var timer = setInterval(fn,1);
+		function fn() {
+			var nowDate  = new Date();
+			var totalTime = goalDate.getTime() - nowDate.getTime();
+			var day = parseInt(totalTime/1000/60/60/24);
+			var hour = parseInt(totalTime/1000/60/60%24);
+			var minu = parseInt(totalTime/1000/60%60);
+			var sec = parseInt(totalTime/1000%60);
+			var millsec = parseInt(totalTime%1000);
+			day = day>=10?day:"0"+day;
+			hour = hour>=10?hour:"0"+hour;
+			minu = minu>=10?minu:"0"+minu;
+			sec = sec>=10?sec:"0"+sec;
+			millsec = millsec>=100?millsec:(millsec>=10?"0"+millsec:"00"+millsec);
+			var div = document.getElementsByTagName("div")[0];
+			if (totalTime<0) {
+				clearInterval(timer);
+				return;
+			}
+			div.innerHTML = "距离2018年国庆还有："+day+"天"+hour+"小时"+minu+"分钟"+sec+"秒"+millsec+"毫秒";
+		}
+
+	</script>
+</body>
+</html>

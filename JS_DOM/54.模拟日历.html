@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>54.模拟日历</title>
+	<style>
+		div{
+			height: 80px;
+			width: 1200px;
+			margin: 0 auto;
+			font: 700 18px/80px "simsun";
+			color: red;
+			text-align:  center;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	    //模拟日历
+        //需求：每天打开这个页面都能定时显示年月日和星期几
+        //步骤：（创建一个当前日期的日期对象，然后获取其中的年月日和星期，赋值给div）
+        //1.创建一个当前日期的日期对象
+        //2.然后获取其中的年月日和星期
+        //3.赋值给div
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth();
+		var day = date.getDate();
+		var week = date.getDay();
+
+		var weekArr = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+		var div = document.getElementsByTagName("div")[0];
+		div.innerHTML = "今天是"+year+"年"+(month+1)+"月"+day+"日"+ weekArr[week];
+	</script>
+</body>
+</html>

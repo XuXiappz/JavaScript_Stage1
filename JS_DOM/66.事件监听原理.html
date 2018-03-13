@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>66.事件监听原理</title>
+</head>
+<body>
+	<button>赋值</button>
+	<script>
+		function fn1 (){
+			console.log("11111111");
+		}
+		function fn2 (){
+			console.log("22222222");
+		}
+		function fn3(){
+			console.log("33333333");
+		}
+		var btn = document.getElementsByTagName("button")[0];
+		fn("click",fn1,btn);
+		fn("click",fn2,btn);
+		fn("click",fn3,btn);
+
+
+		function fn(str,fn,ele){
+			//判断位置要注意：如果进入绑定事件本身，那么该事件已经本绑定了
+        	//所以获取旧的事件必须在新的事件绑定之前
+			var oldEvent = ele["on"+str];
+			ele["on"+str] = function (){
+			//不能直接执行函数，因为我们还不知道以前有没有绑定我同样的事件
+            //进行判断，如果以前有过绑定事件，那么把以前的执行完毕在执行现在的事件，如果没有就直接执行
+            //如果没有被定义过事件该事件源的该事件属性应该是null对应的boolean值是false
+            //如果已经定义过事件该事件源的该事件属性应该是function本身对应的boolean值是true
+				if (oldEvent) {
+					//因为oldEvent本身他就是函数本身，那么后面加一个();就是执行函数
+					oldEvent();
+					fn();
+				}else{
+					//没有绑定过事件
+					fn();
+				}
+			}
+		}
+	</script>
+</body>
+</html>

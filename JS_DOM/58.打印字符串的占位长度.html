@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>58.打印字符串的占位长度</title>
+</head>
+<body>
+	<script>	
+		 //需求：求一个字符串占有几个字符位。
+		 //思路；如果是英文，站一个字符位，如果不是英文占两个字符位。
+    	 //技术点：判断该字符是否在0-127之间。（在的话是英文，不在是非英文）
+		 var str = "I love you means 我爱你";
+		 function getStrLength(str){
+		 	var count = 0;
+		 	for(var i=0;i<str.length;i++){
+		 		if(str.charCodeAt(i)<128 && str.charCodeAt(i)>=0){
+		 			count ++;
+		 		}else{
+		 			count +=2;
+		 		}
+		 	}
+		 	return count;
+		 }
+		 console.log(getStrLength(str));
+
+	</script>
+</body>
+</html>

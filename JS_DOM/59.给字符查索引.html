@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>59.给字符查索引</title>
+</head>
+<body>
+	<script>	
+		var str = "abcdeca";
+		// 给字符查索引（索引值为0，说明字符串以查询的参数开头）
+		console.log(str.indexOf("c"));//从开始查找，找到一个之后停，输出匹配字符位置
+		console.log(str.lastIndexOf("c"));//从末尾开始查找，找到一个之后停，输出匹配字符位置
+
+		// 数据传递的时候经常需要通过编码后再传递，接收的时候还需要反编译回来
+		var url = "http://www.itcast.cn?username='aaa'&password='123'";
+		console.log(encodeURIComponent(url));
+		console.log(decodeURIComponent(encodeURIComponent(url)));
+	</script>
+</body>
+</html>

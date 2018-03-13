@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	60.字符串的连接和截取</title>
+</head>
+<body>
+	<script>	
+			// concat 连接两个字符串返回一个新的字符串，并且不会被修改
+			// var str1 = "abc";
+			// var str2 = "123";
+			// var str3 = str1.concat(str2);
+			// console.log(str1);
+			// console.log(str2);
+			// console.log(str3);
+			// console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+			// slice() 根据索引值和索引值截取字符串
+			var str = "i love my family!";
+			console.log(str.slice(2));//c从索引截取到最后
+			console.log(str.slice(2,5));//截取索引所示范围，包左不包右
+			console.log(str.slice(5,2) ==="");//如果截取范围不合理此时返回空串
+			console.log(str.slice(-3));//后几个，参数此时变为参数+字符长度
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+			// substr() 根据索引值和长度值截取字符串
+			console.log(str.substr(2));//从索引截取到最后
+			console.log(str.substr(2,5));//从索引位置起往后截取6个字符长度的串，如果长度过长，就返回索引位置到最后
+			console.log(str.substr(2,30));//
+			console.log(str.substr(-3));//后几个
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+			// substring() 根据索引值和索引值截取字符串
+			console.log(str.substring(2));//从索引位置截取到最后
+			console.log(str.substring(2,5));//截取索引所示范围，包左不包右
+			console.log(str.substring(5,2));//此时不合理时，对调参数
+			console.log(str.substring(-3));//全部截取
+			console.log(str.substring(-3,-3) === "");//会将所有参数都变为0，自然为空串
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+
+
+			// slice，substring，substr 方法
+			
+			// slice（）从索引位置截取到索引位置，包左不包右
+			// 1.当只有一个参数时，从当前参数截取到末尾
+			// 2.当有两个参数时，截取区间为[参数1，参数2），如果这个区间不合法，则返回空串
+			// 3.当有负数参数时，负数参数变为参数+字符长度
+
+			// substring（）截取从索引位置到索引位置的串
+			// 1.当只有一个参数的时，从当前参数截取到末尾
+			// 2.当有两个参数时，截取区间为[参数1，参数2），如果这个区间不合法，则返回空串，合理状态都是前小后大，如果不合理，则调换位置
+			// 3.当出现负数的时候，参数取0
+
+			// substr()从索引位置开始截取某个长度的串
+			// 1.当只有一个参数时，从当前参数所在的索引位置到末尾
+			// 2.当有两个参数，从参数的位置开始，截取参数2个长度的串，如果长度不够，就返回剩下所有字符串
+			// 3.当有负数参数时，参数1--》参数1+字符长度；参数2 --》0
+
+
+	</script>
+</body>
+</html>

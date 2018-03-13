@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取节点元素封装（简单版）</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box"></div>
+	<div id="box"></div>
+	<div class="box"></div>
+	<script>
+		// 需求：一个方法，包含三种获取元素的功能。通过传递的参数格式的不同，获取方式不同
+		// 其实最终方法就是将getEle方法名换成了一个$符号
+		var idBox = getEle("#box");
+		idBox.style.backgroundColor = "yellow";
+		var classBoxs = getEle(".box");
+		for(var i=0;i<classBoxs.length;i++){
+			var tmp = classBoxs[i];
+			tmp.style.backgroundColor = "blue";
+		}
+		var tagBoxs = getEle("div");
+		for(var i = 0;i<tagBoxs.length;i++){
+			var tmp = tagBoxs[i];
+			tmp.style.margin = "0px 0px 10px 0px";
+			tmp.style.backgroundColor = "pink";
+		}
+
+		function getEle(str){
+			if(str.slice(0,1) === "#"){
+				return document.getElementById(str.slice(1));
+			}else if(str.slice(0,1) === "."){
+				return document.getElementsByClassName(str.slice(1));
+			}else{
+				return document.getElementsByTagName(str);
+			}
+		}
+	</script>
+</body>
+</html>
