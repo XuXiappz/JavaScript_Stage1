@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.动画封装</title>
+	<style>	
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button>运动到200</button>
+	<button>运动到400</button>
+	<div class="box">	</div>
+	<script>	
+			// 需求：点击200按钮，让小方块运动到200的位置;点击300按钮，让小方块运动到400位置
+			var btn1 = document.getElementsByTagName("button")[0];
+			var btn2 = document.getElementsByTagName("button")[1];
+			var box = document.getElementsByClassName("box")[0];
+
+			btn1.onclick = function (){
+				// uniformAnimate(box,200);
+				animate(box,200);
+			}
+			btn2.onclick = function(){
+				// uniformAnimate(box,400);
+				animate(box,400);
+			}
+			// 自己的方法
+			function uniformAnimate(ele,target){
+					clearInterval(timer)
+					var step = 1; //步长
+					var direction = ele.offsetLeft - target >0 ? -1:1;
+					timer = setInterval(function(){
+						if (ele.offsetLeft == target) {
+							clearInterval(timer)
+							return
+						}
+						ele.style.left = ele.offsetLeft + step*direction + "px"; 
+					},10);
+			}
+			// 老师的方法
+			function animate(ele,target){
+        		//要用定时器，先清除定时器(常识)
+        		//一个盒子只能有一个定时器，这样儿的话，不会和其他盒子出现定时器冲突
+        		//而定时器本身讲成为盒子的一个属性
+				clearInterval(ele.timer);
+				ele.timer = setInterval(function(){
+					       //我们要求盒子既能向前又能向后，那么我们的步长就得有正有负
+        					//目标值如果大于当前值取正，目标值如果小于当前值取负
+						var step = ele.offsetLeft < target? 10:-10;
+            				//在执行之前就获取当前值和目标值之差
+						var val = target -ele.offsetLeft ;
+							//目标值和当前值只差如果小于步长，那么就不能在前进了
+            				//因为步长有正有负，所有转换成绝对值来比较
+						if(Math.abs(val) < Math.abs(step)){
+							ele.style.left = target +"px";
+							clearInterval(ele.timer);
+						}else{
+							ele.style.left = ele.offsetLeft + step +"px";
+						}
+					},30);
+			}
+	</script>
+</body>
+</html>

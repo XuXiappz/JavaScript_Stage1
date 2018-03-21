@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06.点击焦点图(无限滚动)</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.banner{
+			width: 490px;
+			height: 170px;
+			padding: 5px;
+			border: 1px solid blue;
+			margin: 0 auto;
+		}
+		.inner{
+			width: 490px;
+			height: 170px;
+			overflow: hidden;
+			position: relative;
+		}
+		/*问一下哥哥，这个该如何处理，如果没有设置其为绝对定位，就无法滚动*/
+		ul{
+			list-style: none;
+			width: 600%;
+			position: absolute;
+			left: 0;
+		}
+		li{
+			float: left;
+		}
+		.square{
+			position: absolute; 
+			right: 10px;
+			bottom: 10px;
+		}
+		.square span{
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background-color:#fff;
+			color: #000;
+			border: 1px solid gray;
+			text-align:  center;
+			line-height: 16px;
+		}
+		.square .current {
+			background-color: orange;
+			color: #fff;
+		}
+		.flip-box{
+			height: 40px;
+			width: 100%;
+			position: absolute;
+			bottom: 40%;
+			left: 0px;
+		}
+		.flip-box button{
+			width: 50px;
+			height: 40px;
+			font: 700 18px/40px "simsun";
+			color: #000;
+		}
+		.flip-box .flip-left{
+			float: left;
+		}
+		.flip-box .flip-right{
+			float: right;
+		}
+		.hidden{
+			display: none;
+		}
+		.show{
+			display: block;
+		}
+	
+	</style>
+</head>
+<body>
+	<script>
+		window.onload = function (){
+			var inner = document.getElementsByClassName("inner")[0];
+			var ul = document.getElementsByTagName("ul")[0];
+			var spanArr = document.getElementsByClassName("square")[0].children;
+			var flipBox = document.getElementsByClassName("flip-box")[0];
+			var rightBtn = document.getElementsByClassName("flip-right")[0];
+			var leftBtn = document.getElementsByClassName("flip-left")[0];
+			var singleW = document.getElementsByClassName("inner")[0].offsetWidth;
+			var pageIndex = 0; //当前页索引
+			autoAnimate(inner);
+			// 焦点滚动 
+			for(var i =0;i<spanArr.length;i++){
+				spanArr[i].index = i;
+				spanArr[i].onmouseover = function (){
+					pageIndex = this.index;
+					updateSquare(this.index);
+					animate(ul,-singleW*this.index);
+				}
+			}
+
+			// 点击无限滚动
+			rightBtn.onclick = function(){
+				pageScroll(1,1);
+			}
+			leftBtn.onclick = function(){
+				pageScroll(-1,1);
+			}
+
+			// 放到inner时，左右button显示，离开时，左右button隐藏
+			// 放到inner时，自动滚动取消，离开时，自动滚动开始
+			inner.onmouseover = function (){
+				flipBox.className = "flip-box show";
+				cancleAutoAnimate(inner);
+			}
+			inner.onmouseout = function(){
+				flipBox.className = "flip-box hidden";
+				autoAnimate(inner);
+			}
+
+			//功能方法
+			function animate(ele,target){
+				clearInterval(ele.timer);
+				ele.timer = setInterval(function(){
+					var step = ele.offsetLeft < target? 10:-10;
+					var val = target -ele.offsetLeft ;
+					if(Math.abs(val) < Math.abs(step)){
+						ele.style.left = target +"px";
+						clearInterval(ele.timer);
+					}else{
+						ele.style.left = ele.offsetLeft + step +"px";
+					}
+				},10);
+			}
+			function updateSquare(index){
+				for(var j = 0;j<spanArr.length;j++){
+						spanArr[j].className = "";
+					}
+					spanArr[index].className = "current";
+			}
+			function pageScroll(derection,step){
+				derection = derection || 1;
+				step = step || 1;
+				if (pageIndex == 5 && derection >0) {
+					ul.style.left = 0+"px";
+					pageIndex = 1;
+
+				}else if (pageIndex == 0 && derection <0){
+					ul.style.left = -5*singleW+"px";
+					pageIndex = 4;
+				}else{
+					pageIndex = pageIndex + derection*step;
+				}
+				var squareIdx  = pageIndex>4?0:pageIndex;
+				updateSquare(squareIdx);
+				animate(ul,-singleW*pageIndex);
+			}
+			function autoAnimate(ele){
+				clearInterval(ele.timer);
+				ele.timer = setInterval(function(){
+					pageScroll(1,1);
+				},1000);
+			}
+			function cancleAutoAnimate(ele){
+				clearInterval(ele.timer);
+			}
+	}
+	</script>
+	<div class="banner">
+		<div class="inner">
+			<ul>
+				<li><img src="images/01.jpg" alt=""></li>
+				<li><img src="images/02.jpg" alt=""></li>
+				<li><img src="images/03.jpg" alt=""></li>
+				<li><img src="images/04.jpg" alt=""></li>
+				<li><img src="images/05.jpg" alt=""></li>
+				<li><img src="images/01.jpg" alt=""></li>
+			</ul>
+			<div class="square">
+				<span class="current">1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+			</div>
+			<div class="flip-box hidden">
+				<button class="flip-left"><</button>
+				<button class="flip-right">></button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

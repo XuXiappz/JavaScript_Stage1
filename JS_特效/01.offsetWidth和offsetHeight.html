@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.offsetWidth和offsetHeight</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			margin: 20px;
+			border: solid 5px yellowgreen;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		var box = document.getElementsByClassName("box")[0];
+
+		// 三大家族（offset/scroll/client）
+		// 事件对象/event（事件被触动时，鼠标和键盘的状态）    	（通过属性控制）
+		// offset这个单词本身是--偏移，补偿，位移的意思。
+		// js中有一套方便的获取元素尺寸的办法就是offset家族；
+
+
+		//offsetHeight和offsetWidth: 可以检测盒子的宽高,得到对象的宽度和高度(自己的，与他人无关)
+。
+		//包括宽高本身，padding，border。不包括margin	
+
+	    //offsetHeight = height+padding+border;(不加margin)
+    	//offsetWidth = width+padding+border;(不加margin)	
+		console.log("offsetWidth",box.offsetWidth);
+		console.log("offsetHeight",box.offsetHeight); //number
+	</script>
+</body>
+</html>
